@@ -1,5 +1,4 @@
-@vite(['resources/css/app.css', 'resources/js/app.js']) 
-<!-- memanggil file app.blade.php -->
+ <!-- memanggil file app.blade.php -->
 @extends('layouts.app')
 
 <!-- mengirimkan nilai ke title untuk ditampilkan -->

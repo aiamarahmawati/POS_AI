@@ -15,7 +15,7 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function login(LoginRequest $request)
+    public function auth(LoginRequest $request)
     {
         if (Auth::attempt($request->validated())) {
 
