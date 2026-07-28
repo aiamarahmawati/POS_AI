@@ -13,60 +13,60 @@
         <h1>
             Ringkasan Hari Ini
             <small class=""text-muted">
-                {{ $tanggalHariIni->translatedFormat('d M Y') }}
+                ({{ $tanggalHariIni->translatedFormat('l, d F Y') }})
             </small>
         </h1>
         <div class="row">
             @can('viewAny', App\Models\User::class)
-            <div class="col-md-12">
-                <h1>Today's Sales</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Total Nilai Penjualan Hari ini
+                <div class="col-md-12">
+                    <h1>Today's Sales</h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Total Nilai Penjualan Hari ini
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rp {{ number_format($ringkasan['total_penjualan']) }}</h5>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Rp {{ number_format($ringkasan['total_penjualan']) }}</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Jumlah Transaksi Hari ini
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $ringkasan['total_transaksi'] }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Jumlah Transaksi Hari ini
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Cash & Payment Status</h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Total Pembayaran Tunai
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rp {{ number_format($ringkasan['total_cash']) }}</h5>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $ringkasan['total_transaksi'] }}</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Total Pembayaran Non-Tunai
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rp {{ number_format($ringkasan['total_non_tunai']) }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h1>Cash & Payment Status</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Total Pembayaran Tunai
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Rp {{ number_format($ringkasan['total_cash']) }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Total Pembayaran Non-Tunai
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Rp {{ number_format($ringkasan['total_non_tunai']) }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
         @endcan
         <div class="row">
             <div class="col-md-12">
@@ -84,17 +84,17 @@
                     </thead>
                     <tbody>
                         @forelse ($produkStokRendah as $index => $produk)
-                        <tr>
-                            <th>{{ $produkStokRendah->firstItem() + $index}}</th>
-                            <td>{{ $produk->nama }}</td>
-                            <td>{{ $produk->stok }}</td>
-                        </tr>
+                            <tr>
+                                <th>{{ $produkStokRendah->firstItem() + $index }}</th>
+                                <td>{{ $produk->nama }}</td>
+                                <td>{{ $produk->stok }}</td>
+                            </tr>
                         @empty
-                        <tr>
-                            <td colspan="3" class="text-center">
-                                Seluruh produk berada dalam kondisi stok aman.
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    Seluruh produk berada dalam kondisi stok aman.
+                                </td>
+                            </tr>
                         @endforelse
                         </tr>
                     </tbody>
@@ -113,17 +113,17 @@
                     </thead>
                     <tbody>
                         @forelse ($produkStokHabis as $index => $produk)
-                        <tr>
-                            <th>{{ $produkStokHabis->firstItem() + $index}}</th>
-                            <td>{{ $produk->nama }}</td>
-                            <td>{{ $produk->stok }}</td>
-                        </tr>
+                            <tr>
+                                <th>{{ $produkStokHabis->firstItem() + $index }}</th>
+                                <td>{{ $produk->nama }}</td>
+                                <td>{{ $produk->stok }}</td>
+                            </tr>
                         @empty
-                        <tr>
-                            <td colspan="3" class="text-center">
-                                Seluruh produk berada dalam kondisi stok aman.
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    Seluruh produk berada dalam kondisi stok aman.
+                                </td>
+                            </tr>
                         @endforelse
                         </tr>
                     </tbody>
@@ -146,17 +146,17 @@
                     </thead>
                     <tbody>
                         @forelse ($produkTerlaris as $index => $produk)
-                        <tr>
-                            <th>{{ $produk->nama}}</th>
-                            <td>{{ $produk->stok }}</td>
-                            <td>{{ $produk->total_terjual }}</td>
-                        </tr>
+                            <tr>
+                                <th>{{ $produk->nama }}</th>
+                                <td>{{ $produk->stok }}</td>
+                                <td>{{ $produk->total_terjual }}</td>
+                            </tr>
                         @empty
-                        <tr>
-                            <td colspan="3" class="text-center">
-                                Seluruh produk berada dalam kondisi stok aman.
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    Seluruh produk berada dalam kondisi stok aman.
+                                </td>
+                            </tr>
                         @endforelse
                         </tr>
                     </tbody>

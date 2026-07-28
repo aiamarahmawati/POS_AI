@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'email' => ['required',
             'email',
             Rule::unique('users')->ignore($this->user->id),
-            ],
+        ],
             'password' => 'nullable|min:8',
             'role_id' => 'required',
             'is_active' => 'boolean'
@@ -43,7 +43,7 @@ class UpdateRequest extends FormRequest
             'email.required'    => 'Email wajib diisi.',
             'email.email'       => 'Format email tidak valid.',
             'password.min'      => 'Password minimal :min karakter.',
-            'role_id.required'  => 'Roles Wajib diisi.'
+            'role.required'     => 'Role Wajib diisi.'
         ];
     }
 }
