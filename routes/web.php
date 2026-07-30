@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ItemPenjualanController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 
@@ -26,6 +28,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/users/destroy/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+        });
+
+    Route::middleware('role:admin,kasir')->group(function () {
         Route::resource('/produk', ProdukController::class,);
+        Route::resource('/penjualan', PenjualanController::class);
+        Route::resource('/itempenjualan', ItemPenjualanController::class);
     });
 });

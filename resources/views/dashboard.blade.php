@@ -4,10 +4,9 @@
 <!-- mengirimkan nilai ke title untuk ditampilkan -->
 @section('title', 'Login')
 
+@include('layouts.navbar')
 <!-- batas awal isi konten  -->
 @section('content')
-
-    @include('layouts.navbar')
 
     <div class="text-center">
         <h1>

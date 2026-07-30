@@ -2,9 +2,9 @@
 
 @section('title', 'Users')
 
-@section('content')
-
 @include('layouts.navbar')
+
+@section('content')
 
 <h1>Halaman Users</h1>
 <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Create</a>
