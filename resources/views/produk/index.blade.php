@@ -47,32 +47,34 @@
       <td>{{ $product->user->name }}</td>
       <td>
         <img src="{{ asset('storage/'.$product->foto) }}" 
-                 width="100"
+                 style="height: 50px" width="50px" object-fit: cover;
                  class="img-thumbnail">
       </td>
       <td>{{ $product->nama }}</td>
       <td>{{ $product->harga_beli }}</td>
       <td>{{ $product->harga_jual }}</td>
       <td>{{ $product->stok }}</td>
-      <td class="d-flex gap-1">
+      <td class="align-middle">
+      <div class="d-flex gap-2 align-items-center">
         @can('delete', $product)
           <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
         @endcan
-        ||
         @can('delete', $product)
-          <form action="{{ route('produk.destroy', $product) }}" method="POST" class="d-inline">
+          <form action="{{ route('produk.destroy', $product) }}" method="POST" class="d-inline mb-0">
               @csrf
+              ||
               @method('DELETE')
               <button class="btn btn-danger" onclick="return confirm('Apakah yakin akan menghapus produk ini?')">
                   Hapus
               </button>
           </form>
         @endcan
+        </div>
       </td>
     </tr>
     @empty
         <tr>
-            <td collspan=8><h1>Data tidak tersedia.</h1></td>
+            <td colspan="8"><h1>Data tidak tersedia.</h1></td>
         </tr>
     @endforelse
   </tbody>

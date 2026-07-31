@@ -8,10 +8,10 @@
 <!-- batas awal isi konten  -->
 @section('content')
 
-    <div class="text-center">
+    <div class="container py-4 text-center">
         <h1>
             Ringkasan Hari Ini
-            <small class=""text-muted">
+            <small class="text-muted">
                 ({{ $tanggalHariIni->translatedFormat('l, d F Y') }})
             </small>
         </h1>
@@ -21,7 +21,7 @@
                     <h1>Today's Sales</h1>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card shadow-sm border-0 mb-3">
                         <div class="card-header">
                             Total Nilai Penjualan Hari ini
                         </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card shadow-sm border-0 mb-3">
                         <div class="card-header">
                             Jumlah Transaksi Hari ini
                         </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-6">
                 <h3>Daftar produk stok rendah</h3>
-                <table class="table">
+                <table class="table table-hover table-striped align-middle mt-2">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
