@@ -8,3 +8,431 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+/* ---------- Navbar sederhana ---------- */
+
+
+/* ---------- Navbar sederhana ---------- */
+
+.pos-navbar {
+    background: #FFFFFF !important;
+    padding: 14px 0;
+    /* Kita kembalikan border-bottom penuh di bawah nav agar menjadi landasan garis aktif */
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.pos-navbar .navbar-brand {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1F2937 !important;
+}
+
+.pos-navbar .nav-link {
+    color: #6B7280 !important;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px !important;
+    position: relative;
+    /* Wajib ditambahkan agar posisi garis indikator akurat */
+}
+
+
+/* MODIFIKASI: Mengubah style menu aktif dan menambahkan garis di bawah teksnya */
+
+.pos-navbar .nav-link {
+    color: #6B7280 !important;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px !important;
+    position: relative;
+    /* TAMBAHKAN INI: memaksa display menjadi inline-block agar ukuran 
+       garis di bawahnya akurat mengikuti lebar teks */
+    display: inline-block;
+}
+
+
+/* ... kode menu active lainnya ... */
+
+.pos-navbar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    /* UBAH KE 0: agar posisi garis naik pas di bawah teks */
+    left: 14px;
+    /* Tetap sama dengan padding kiri */
+    right: 14px;
+    /* Tetap sama dengan padding kanan */
+    height: 2px;
+    background-color: #1F2937;
+}
+
+.pos-navbar .btn-danger {
+    background: transparent;
+    border: 1px solid #E5E7EB;
+    color: #DC2626;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+}
+
+.pos-navbar .btn-danger:hover {
+    background: #FEF2F2;
+    border-color: #DC2626;
+    color: #DC2626;
+}
+
+
+/* ---------- Judul utama & judul section ---------- */
+
+h1 {
+    font-weight: 700;
+    font-size: 26px;
+    color: #1F2937;
+}
+
+h1 small {
+    font-weight: 400;
+    color: #6B7280;
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 36px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E5E7EB;
+    text-align: left;
+}
+
+
+/* ---------- Card statistik (Total Penjualan, Transaksi, Tunai, dll) ---------- */
+
+.card {
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+.card-header {
+    background: #FAFAFB;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7280;
+    padding: 10px 16px;
+}
+
+.card-body {
+    padding: 14px 16px;
+}
+
+.card-body .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0;
+}
+
+
+/* ---------- Sub-judul tabel (Daftar produk stok rendah, dll) ---------- */
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    text-align: left;
+    margin: 0 0 16px;
+}
+
+
+/* ---------- Halaman Users: kurangi jumlah warna ---------- */
+
+
+/* Tombol Create: tetap biru (accent), ini aksi utama */
+
+.btn-primary {
+    background: #2563EB;
+    border-color: #2563EB;
+}
+
+.btn-primary:hover {
+    background: #1D4ED8;
+    border-color: #1D4ED8;
+}
+
+
+/* Tombol Edit Akun: dari kuning solid -> outline netral */
+
+.btn-warning {
+    background: transparent;
+    border: 1px solid #E5E7EB;
+    color: #1F2937;
+}
+
+.btn-warning:hover {
+    background: #F7F8FA;
+    border-color: #D1D5DB;
+    color: #1F2937;
+}
+
+
+/* Tombol Hapus: dari merah solid -> outline merah (senada tombol Logout) */
+
+.btn-danger {
+    background: transparent;
+    border: 1px solid #E5E7EB;
+    color: #DC2626;
+}
+
+.btn-danger:hover {
+    background: #FEF2F2;
+    border-color: #DC2626;
+    color: #DC2626;
+}
+
+
+/* Nama di tabel: hilangkan warna link biru bawaan, jadi teks biasa */
+
+table tbody a {
+    color: #1F2937;
+    text-decoration: none;
+}
+
+table tbody a:hover {
+    color: #2563EB;
+}
+
+
+/* ---------- Samakan link nama produk (kalah sama .text-primary bawaan) ---------- */
+
+table tbody a.text-primary,
+table tbody td a {
+    color: #1F2937 !important;
+}
+
+table tbody a.text-primary:hover,
+table tbody td a:hover {
+    color: #2563EB !important;
+}
+
+
+/* ---------- Halaman Form / Tambah Data (Elegan & Minimalis) ---------- */
+
+.form-container {
+    max-width: 550px;
+    /* Lebar ideal untuk form agar nyaman dilihat */
+    margin: 40px auto;
+    padding: 0 16px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #D1D5DB !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+    font-size: 14px;
+    color: #1F2937;
+    box-shadow: none !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2563EB !important;
+}
+
+.form-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-submit {
+    background: #2563EB !important;
+    border: 1px solid #2563EB !important;
+    color: #FFFFFF !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 6px;
+}
+
+.btn-submit:hover {
+    background: #1D4ED8 !important;
+    border-color: #1D4ED8 !important;
+}
+
+.btn-cancel {
+    background: transparent !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-cancel:hover {
+    background: #F9FAFB !important;
+    border-color: #D1D5DB !important;
+    color: #1F2937 !important;
+}
+
+
+/* ---------- Halaman Tabel Users Modern Minimalis ---------- */
+
+
+/* Pembungkus area filter atas agar sejajar horizontal */
+
+.table-filter-action {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 24px !important;
+    gap: 16px !important;
+    width: 100% !important;
+}
+
+
+/* Mempercantik Input Pencarian */
+
+.search-wrapper {
+    display: flex !important;
+    max-width: 400px !important;
+    width: 100% !important;
+}
+
+.search-input {
+    border: 1px solid #D1D5DB !important;
+    border-right: none !important;
+    border-radius: 6px 0 0 6px !important;
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+    color: #1F2937 !important;
+    width: 100% !important;
+    background-color: #FFFFFF !important;
+}
+
+.search-btn {
+    background: #F9FAFB !important;
+    border: 1px solid #D1D5DB !important;
+    border-radius: 0 6px 6px 0 !important;
+    color: #4B5563 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
+    white-space: nowrap !important;
+}
+
+
+/* Memperbarui Tombol Create Utama */
+
+.btn-create-user {
+    background: #2563EB !important;
+    border: 1px solid #2563EB !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+
+/* Merapikan Desain Tabel */
+
+.custom-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 10px !important;
+}
+
+.custom-table th {
+    background-color: #FAFAFB !important;
+    border-bottom: 1px solid #E5E7EB !important;
+    color: #6B7280 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+}
+
+.custom-table td {
+    border-bottom: 1px solid #F3F4F6 !important;
+    padding: 14px 16px !important;
+    font-size: 14px !important;
+    color: #1F2937 !important;
+    vertical-align: middle !important;
+}
+
+
+/* Desain Badge/Role yang Cantik */
+
+.badge-role {
+    display: inline-flex !important;
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 9999px !important;
+    text-transform: capitalize !important;
+}
+
+.badge-role.admin {
+    background-color: #EFF6FF !important;
+    color: #2563EB !important;
+}
+
+.badge-role.kasir,
+.badge-role.petugas {
+    background-color: #F3F4F6 !important;
+    color: #4B5563 !important;
+}
+
+
+/* Mengubah Tombol Aksi */
+
+.action-buttons {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+.custom-table td .btn-action-edit {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #4B5563 !important;
+    border: 1px solid #E5E7EB !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    background-color: #FFFFFF !important;
+    /* PERBAIKAN UTAMA: Menyamakan tinggi tombol */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+}
+
+.btn-action-delete {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #DC2626 !important;
+    border: 1px solid #FEE2E2 !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    background: #FFF5F5 !important;
+    cursor: pointer !important;
+}

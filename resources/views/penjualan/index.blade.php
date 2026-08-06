@@ -52,7 +52,7 @@
                 <td>{{$sale->status}}</td>
                 <td class="text-nowrap">
                 <div class=" gap-2 align-items-center text-nowrap">
-                    <a href="" class="btn btn-primary">Detail</a>
+                    <a href="" class="btn btn-outline-secondary">Detail</a>
                     @can('view', $sale)
                     ||
                     <a href="{{ route('penjualan.edit', $sale) }}" class="btn btn-warning">Edit</a>

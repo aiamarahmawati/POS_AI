@@ -1,4 +1,3 @@
-<!-- memnaggil file app.blade.php -->
 @extends('layouts.app')
 
 <!-- mengirimkan nilai ke title untuk ditampilkan -->
@@ -18,7 +17,7 @@
         <div class="row">
             @can('viewAny', App\Models\User::class)
                 <div class="col-md-12">
-                    <h1>Today's Sales</h1>
+                    <h2>Today's Sales</h2>
                 </div>
                 <div class="col-md-6">
                     <div class="card shadow-sm border-0 mb-3">
@@ -43,7 +42,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Cash & Payment Status</h1>
+                    <h2>Cash & Payment Status</h2>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -69,7 +68,7 @@
         @endcan
         <div class="row">
             <div class="col-md-12">
-                <h1>Critical Inventory Status</h1>
+                <h2>Critical Inventory Status</h2>
             </div>
             <div class="col-md-6">
                 <h3>Daftar produk stok rendah</h3>
@@ -132,7 +131,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h1>Best Seller Products</h1>
+                <h2>Best Seller Products</h2>
             </div>
             <div class="col-md-12">
                 <table class="table">

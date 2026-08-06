@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand bg-body-tertiary">
+<nav class="navbar navbar-expand bg-body-tertiary pos-navbar">
   <div class="container">
     <a class="navbar-brand" href="#">POS</a>
 
