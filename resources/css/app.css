@@ -10,245 +10,527 @@
 }
 
 
-/* ---------- Navbar sederhana ---------- */
-
-
-/* ---------- Navbar sederhana ---------- */
+/* ---------- NAVBAR ---------- */
 
 .pos-navbar {
-    background: #FFFFFF !important;
-    padding: 14px 0;
-    /* Kita kembalikan border-bottom penuh di bawah nav agar menjadi landasan garis aktif */
-    border-bottom: 1px solid #E5E7EB;
+    /* 1. Mengubah background menjadi gelap (Slate Dark) */
+    background: #1E293B !important;
+    padding: 12px 0;
+    /* Menghapus border bawah lama karena sudah kontras dengan background utama */
+    border-bottom: none;
+    /* Memberikan bayangan halus di bawah navbar */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .pos-navbar .navbar-brand {
     font-weight: 700;
-    font-size: 18px;
-    color: #1F2937 !important;
+    font-size: 20px;
+    /* 2. Mengubah warna logo menjadi putih bersih */
+    color: #FFFFFF !important;
+    letter-spacing: 0.5px;
 }
 
 .pos-navbar .nav-link {
-    color: #6B7280 !important;
+    /* 3. Mengubah teks menu pasif menjadi abu-abu kebiruan yang lembut */
+    color: #94A3B8 !important;
     font-size: 14px;
     font-weight: 500;
-    padding: 6px 14px !important;
+    padding: 8px 16px !important;
     position: relative;
-    /* Wajib ditambahkan agar posisi garis indikator akurat */
-}
-
-
-/* MODIFIKASI: Mengubah style menu aktif dan menambahkan garis di bawah teksnya */
-
-.pos-navbar .nav-link {
-    color: #6B7280 !important;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 14px !important;
-    position: relative;
-    /* TAMBAHKAN INI: memaksa display menjadi inline-block agar ukuran 
-       garis di bawahnya akurat mengikuti lebar teks */
     display: inline-block;
+    /* Efek transisi halus saat pointer menyentuh menu */
+    transition: color 0.2s ease;
 }
 
 
-/* ... kode menu active lainnya ... */
+/* Efek saat menu diarahkan kursor (hover) */
+
+.pos-navbar .nav-link:hover {
+    color: #F8FAFC !important;
+}
+
+
+/* 4. Mengubah menu yang aktif menjadi putih menyala */
+
+.pos-navbar .nav-link.active {
+    color: #FFFFFF !important;
+    font-weight: 600;
+}
+
+
+/* 5. Garis indikator aktif di bawah menu menggunakan warna aksen (Ocean Blue) */
 
 .pos-navbar .nav-link.active::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    /* UBAH KE 0: agar posisi garis naik pas di bawah teks */
-    left: 14px;
-    /* Tetap sama dengan padding kiri */
-    right: 14px;
-    /* Tetap sama dengan padding kanan */
-    height: 2px;
-    background-color: #1F2937;
+    bottom: -4px;
+    /* Posisi diturunkan sedikit agar lebih pas di navbar gelap */
+    left: 16px;
+    /* Menyesuaikan dengan padding kiri yang baru */
+    right: 16px;
+    /* Menyesuaikan dengan padding kanan yang baru */
+    height: 3px;
+    /* Tebal garis dinaikkan sedikit agar lebih tegas */
+    background-color: #0EA5E9;
+    /* Warna aksen utama */
+    border-radius: 2px;
 }
 
+
+/* 6. Desain ulang tombol Logout menjadi lebih modern & solid */
+
 .pos-navbar .btn-danger {
-    background: transparent;
-    border: 1px solid #E5E7EB;
-    color: #DC2626;
+    background: #EF4444;
+    /* Warna merah modern, bukan merah pekat */
+    border: none;
+    color: #FFFFFF !important;
     font-size: 13px;
     font-weight: 600;
     padding: 6px 16px;
+    border-radius: 6px;
+    /* Sudut sedikit membulat modern */
+    transition: background-color 0.2s ease;
 }
 
 .pos-navbar .btn-danger:hover {
-    background: #FEF2F2;
-    border-color: #DC2626;
-    color: #DC2626;
+    background: #DC2626;
+    /* Merah sedikit lebih dalam saat di-hover */
 }
 
 
-/* ---------- Judul utama & judul section ---------- */
+/* ---------- HALAMAN DASHBOARD ---------- */
+
+
+/* ---------- Pengaturan Dasar Latar Belakang ---------- */
+
+body {
+    /* Mengubah background utama menjadi abu-abu super muda agar kartu putih terlihat mengambang */
+    background-color: #F8F9FA !important;
+}
+
+
+/* ---------- Typography & Judul ---------- */
 
 h1 {
     font-weight: 700;
     font-size: 26px;
-    color: #1F2937;
+    color: #1E293B;
+    /* Menggunakan Slate Dark (30%) */
+    margin-bottom: 24px;
 }
 
 h1 small {
     font-weight: 400;
-    color: #6B7280;
+    color: #64748B;
+    /* Muted Slate */
     font-size: 15px;
 }
 
 h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1F2937;
-    margin: 36px 0 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #E5E7EB;
-    text-align: left;
-}
-
-
-/* ---------- Card statistik (Total Penjualan, Transaksi, Tunai, dll) ---------- */
-
-.card {
-    border: 1px solid #E5E7EB !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-}
-
-.card-header {
-    background: #FAFAFB;
-    border-bottom: 1px solid #E5E7EB;
-    font-size: 13px;
-    font-weight: 500;
-    color: #6B7280;
-    padding: 10px 16px;
-}
-
-.card-body {
-    padding: 14px 16px;
-}
-
-.card-body .card-title {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
-    color: #1F2937;
-    margin: 0;
+    color: #1E293B;
+    /* Slate Dark */
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E2E8F0;
+    /* Garis pembatas section lebih tegas tapi halus */
+    text-align: left;
+    text-transform: uppercase;
+    /* Membuat judul sub-section sedikit bergaya industri */
+    letter-spacing: 0.5px;
 }
-
-
-/* ---------- Sub-judul tabel (Daftar produk stok rendah, dll) ---------- */
 
 h3 {
     font-size: 14px;
     font-weight: 600;
-    color: #1F2937;
+    color: #334155;
     text-align: left;
-    margin: 0 0 16px;
+    margin: 12px 0 12px;
 }
 
 
-/* ---------- Halaman Users: kurangi jumlah warna ---------- */
+/* ---------- Card Statistik Premium (Today's Sales & Cash) ---------- */
 
-
-/* Tombol Create: tetap biru (accent), ini aksi utama */
-
-.btn-primary {
-    background: #2563EB;
-    border-color: #2563EB;
+.card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Batas abu-abu tipis modern */
+    border-radius: 10px !important;
+    /* Sudut sedikit lebih membulat halus */
+    /* Memberikan efek bayangan tipis mewah khas aplikasi modern */
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden;
 }
 
-.btn-primary:hover {
-    background: #1D4ED8;
-    border-color: #1D4ED8;
+.card-header {
+    background: #F8FAFC !important;
+    /* Area judul kartu sedikit lebih kontras */
+    border-bottom: 1px solid #E2E8F0 !important;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+    /* Warna label diperhalus agar fokus utama ke angka */
+    padding: 12px 16px;
+    text-align: left;
+    letter-spacing: 0.3px;
 }
 
-
-/* Tombol Edit Akun: dari kuning solid -> outline netral */
-
-.btn-warning {
-    background: transparent;
-    border: 1px solid #E5E7EB;
-    color: #1F2937;
+.card-body {
+    padding: 16px;
+    text-align: left;
+    /* Menyamakan alignment konten ke kiri agar rapi */
 }
 
-.btn-warning:hover {
-    background: #F7F8FA;
-    border-color: #D1D5DB;
-    color: #1F2937;
-}
-
-
-/* Tombol Hapus: dari merah solid -> outline merah (senada tombol Logout) */
-
-.btn-danger {
-    background: transparent;
-    border: 1px solid #E5E7EB;
-    color: #DC2626;
-}
-
-.btn-danger:hover {
-    background: #FEF2F2;
-    border-color: #DC2626;
-    color: #DC2626;
+.card-body .card-title {
+    font-size: 24px;
+    /* Ukuran nominal angka dinaikkan sedikit agar lebih tegas */
+    font-weight: 700;
+    color: #1E293B;
+    /* Slate Dark pekat */
+    margin: 0;
 }
 
 
-/* Nama di tabel: hilangkan warna link biru bawaan, jadi teks biasa */
+/* ---------- Kustomisasi Tabel Inventaris & Best Seller ---------- */
 
-table tbody a {
-    color: #1F2937;
-    text-decoration: none;
+
+/* Memperbaiki tampilan tabel Bootstrap agar bersih dan berjarak pas */
+
+.table {
+    border-color: #E2E8F0 !important;
+    background-color: #FFFFFF !important;
+    margin-top: 10px;
 }
 
-table tbody a:hover {
-    color: #2563EB;
+
+/* Merapikan baris judul kolom tabel */
+
+.table thead th {
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 16px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
 }
 
 
-/* ---------- Samakan link nama produk (kalah sama .text-primary bawaan) ---------- */
+/* Merapikan isi baris tabel */
 
-table tbody a.text-primary,
-table tbody td a {
-    color: #1F2937 !important;
+.table tbody td,
+.table tbody th {
+    padding: 12px 16px !important;
+    color: #334155 !important;
+    font-size: 14px;
+    border-bottom: 1px solid #F1F5F9 !important;
 }
 
-table tbody a.text-primary:hover,
-table tbody td a:hover {
+
+/* Menghilangkan text-center bawaan di tabel jika ada agar sejajar ke kiri dengan judulnya */
+
+.table th,
+.table td {
+    text-align: left !important;
+}
+
+
+/* ---------- Pewarnaan Khusus Status Kritis (Warna Aksentuasi) ---------- */
+
+
+/* Teks penanda produk habis stok (Stok 0) */
+
+.text-danger-custom {
+    color: #EF4444 !important;
+    font-weight: 600;
+}
+
+
+/* Teks penanda produk stok menipis */
+
+.text-warning-custom {
+    color: #F59E0B !important;
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
+   HALAMAN MANAGEMENT DATA (USERS & MASTER DATA) - FINAL PERFECTED
+   ========================================================================== */
+
+
+/* ---------- 1. Tata Letak Filter & Tombol Create ---------- */
+
+.table-filter-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+
+/* Kotak Pembungkus Search */
+
+.search-wrapper {
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 8px 0 0 8px !important;
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+    color: #1E293B !important;
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #0EA5E9 !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
+    outline: none;
+}
+
+.search-btn {
+    border: 1px solid #E2E8F0 !important;
+    border-left: none !important;
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 0 8px 8px 0 !important;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #F1F5F9 !important;
+    color: #1E293B !important;
+}
+
+
+/* ---------- 2. Tombol Create Utama (Aksen Biru Modern) ---------- */
+
+.btn-create-user {
+    background-color: #0EA5E9 !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-block;
+    box-shadow: 0 1px 2px 0 rgba(14, 165, 233, 0.2) !important;
+    transition: background-color 0.2s ease;
+}
+
+.btn-create-user:hover {
+    background-color: #0284C7 !important;
+}
+
+
+/* ---------- 3. Pengunci Tabel Putih Bersih & Membulat ---------- */
+
+table.custom-table {
+    width: 100% !important;
+    background-color: #FFFFFF !important;
+    /* Memaksa background tabel jadi putih solid */
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    border-collapse: separate !important;
+    /* Wajib separate agar lengkungan sudut luar terlihat */
+    border-spacing: 0 !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.02) !important;
+    margin-top: 20px !important;
+}
+
+
+/* Merapikan sudut-sudut lengkung tabel */
+
+table.custom-table tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+table.custom-table tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+table.custom-table tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+table.custom-table tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+table.custom-table th {
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+    text-align: left;
+}
+
+table.custom-table td {
+    padding: 14px 16px !important;
+    color: #334155 !important;
+    font-size: 14px;
+    border-bottom: 1px solid #F1F5F9 !important;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table.custom-table tbody tr:hover {
+    background-color: #F8FAFC !important;
+}
+
+
+/* ---------- 4. Badge Status Role Kotak Lembut Premium ---------- */
+
+span.badge-role {
+    display: inline-block !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    text-transform: capitalize !important;
+}
+
+
+/* Warna spesifik jika class-nya 'admin' */
+
+span.badge-role.admin {
+    background-color: #EFF6FF !important;
     color: #2563EB !important;
 }
 
 
-/* ---------- Halaman Form / Tambah Data (Elegan & Minimalis) ---------- */
+/* Warna spesifik jika class-nya 'kasir' */
 
-.form-container {
-    max-width: 550px;
-    /* Lebar ideal untuk form agar nyaman dilihat */
-    margin: 40px auto;
-    padding: 0 16px;
+span.badge-role.kasir {
+    background-color: #F0FDF4 !important;
+    color: #16A34A !important;
 }
+
+
+/* ---------- 5. Tombol Aksi Minimalis (Sederhana & Elegan) ---------- */
+
+.btn-action-edit {
+    background: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    transition: all 0.15s ease;
+}
+
+.btn-action-edit:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    color: #1E293B !important;
+}
+
+.btn-action-delete {
+    background: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #EF4444 !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease;
+}
+
+.btn-action-delete:hover {
+    background: #FEF2F2 !important;
+    border-color: #FCA5A5 !important;
+    color: #DC2626 !important;
+}
+
+
+/* ==========================================================================
+   HALAMAN FORM / TAMBAH DATA (SOPHISTICATED MODERN)
+   ========================================================================== */
+
+
+/* Pengunci Card Form agar Putih Bersih Semakmur Dashboard & Index */
+
+div.card.bg-white {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    /* Kelengkungan sudut disamakan dengan tabel */
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.02) !important;
+}
+
+div.card-header {
+    background-color: #F8FAFC !important;
+    /* Warna header abu-abu premium */
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding: 16px 20px !important;
+}
+
+
+/* Judul "Tambah User Baru" */
+
+div.card-header h1 {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    /* Slate Dark */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 !important;
+}
+
+
+/* Label Input (Nama, Email, dll) */
 
 .form-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 6px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    /* Muted Slate */
+    margin-bottom: 6px !important;
 }
+
+
+/* Kolom Isian Input & Dropdown Select */
 
 .form-control,
 .form-select {
-    border: 1px solid #D1D5DB !important;
-    border-radius: 6px !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Border abu-abu tipis modern */
+    border-radius: 8px !important;
     padding: 10px 14px !important;
-    font-size: 14px;
-    color: #1F2937;
+    font-size: 14px !important;
+    color: #1E293B !important;
+    background-color: #FFFFFF !important;
     box-shadow: none !important;
+    transition: all 0.2s ease !important;
 }
+
+
+/* Efek Fokus Menyala Lembut Khas SaaS Modern */
 
 .form-control:focus,
 .form-select:focus {
-    border-color: #2563EB !important;
+    border-color: #0EA5E9 !important;
+    /* Ocean Blue */
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12) !important;
 }
+
+
+/* Container Pembungkus Tombol Aksi */
 
 .form-actions {
     margin-top: 32px;
@@ -256,183 +538,326 @@ table tbody td a:hover {
     gap: 12px;
 }
 
+
+/* Tombol Simpan (Primary Action) */
+
 .btn-submit {
-    background: #2563EB !important;
-    border: 1px solid #2563EB !important;
+    background: #0EA5E9 !important;
+    /* Ocean Blue */
+    border: 1px solid #0EA5E9 !important;
     color: #FFFFFF !important;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 6px;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgba(14, 165, 233, 0.15) !important;
+    transition: background-color 0.2s ease !important;
+    cursor: pointer;
 }
 
 .btn-submit:hover {
-    background: #1D4ED8 !important;
-    border-color: #1D4ED8 !important;
+    background: #0284C7 !important;
+    border-color: #0284C7 !important;
 }
+
+
+/* Tombol Kembali / Batal (Secondary Action) */
 
 .btn-cancel {
     background: transparent !important;
-    border: 1px solid #E5E7EB !important;
-    color: #4B5563 !important;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 24px;
-    border-radius: 6px;
-    text-decoration: none;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
     display: inline-flex;
     align-items: center;
+    transition: all 0.15s ease !important;
 }
 
 .btn-cancel:hover {
-    background: #F9FAFB !important;
-    border-color: #D1D5DB !important;
-    color: #1F2937 !important;
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    color: #1E293B !important;
 }
 
 
-/* ---------- Halaman Tabel Users Modern Minimalis ---------- */
+/* ---------- Halaman Produk ---------- */
 
 
-/* Pembungkus area filter atas agar sejajar horizontal */
+/* Mengubah tombol .btn-warning bawaan Bootstrap menjadi bergaya outline modern khusus di dalam tabel produk */
 
-.table-filter-action {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin-bottom: 24px !important;
-    gap: 16px !important;
-    width: 100% !important;
-}
-
-
-/* Mempercantik Input Pencarian */
-
-.search-wrapper {
-    display: flex !important;
-    max-width: 400px !important;
-    width: 100% !important;
-}
-
-.search-input {
-    border: 1px solid #D1D5DB !important;
-    border-right: none !important;
-    border-radius: 6px 0 0 6px !important;
-    padding: 8px 14px !important;
-    font-size: 14px !important;
-    color: #1F2937 !important;
-    width: 100% !important;
-    background-color: #FFFFFF !important;
-}
-
-.search-btn {
-    background: #F9FAFB !important;
-    border: 1px solid #D1D5DB !important;
-    border-radius: 0 6px 6px 0 !important;
-    color: #4B5563 !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    padding: 8px 16px !important;
-    white-space: nowrap !important;
-}
-
-
-/* Memperbarui Tombol Create Utama */
-
-.btn-create-user {
-    background: #2563EB !important;
-    border: 1px solid #2563EB !important;
-    color: #FFFFFF !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    padding: 8px 18px !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-}
-
-
-/* Merapikan Desain Tabel */
-
-.custom-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 10px !important;
-}
-
-.custom-table th {
-    background-color: #FAFAFB !important;
-    border-bottom: 1px solid #E5E7EB !important;
-    color: #6B7280 !important;
+.custom-table .btn-warning {
+    background: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
     font-size: 13px !important;
     font-weight: 600 !important;
-    padding: 12px 16px !important;
-    text-align: left !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    transition: all 0.15s ease !important;
 }
 
-.custom-table td {
-    border-bottom: 1px solid #F3F4F6 !important;
-    padding: 14px 16px !important;
+.custom-table .btn-warning:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    color: #1E293B !important;
+}
+
+
+/* ---------- Kustomisasi Kotak Notifikasi Sukses (Alert) ---------- */
+
+.alert-success,
+.alert {
+    background-color: #F0FDF4 !important;
+    /* Hijau super lembut, senada dengan badge kasir */
+    color: #15803D !important;
+    /* Teks hijau gelap yang matang dan elegan */
+    border: 1px solid #BBF7D0 !important;
+    /* Border hijau tipis halus */
+    border-radius: 8px !important;
     font-size: 14px !important;
-    color: #1F2937 !important;
+    font-weight: 500 !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 1px 2px 0 rgba(21, 128, 61, 0.02) !important;
+    margin-bottom: 24px !important;
+}
+
+
+/* Halaman Penjualan */
+
+
+/* Menangkap tombol edit kuning bawaan bootstrap di tabel produk & penjualan lalu mengubahnya menjadi outline modern */
+
+.custom-table .btn-warning,
+table.custom-table td .btn-warning {
+    background: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: all 0.15s ease !important;
+}
+
+.custom-table .btn-warning:hover,
+table.custom-table td .btn-warning:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    color: #1E293B !important;
+}
+
+
+/* ==========================================================================
+   HALAMAN TRANSAKSI UTAMA POS / KASIR
+   ========================================================================== */
+
+
+/* 1. Mengubah Judul Halaman Atas */
+
+h4.mb-3 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    /* Slate Dark pekat */
+    margin-bottom: 20px !important;
+}
+
+
+/* 2. Merapikan Kotak Pencarian Produk */
+
+.card-body input[placeholder="Cari produk..."] {
+    border-radius: 8px !important;
+    border: 1px solid #E2E8F0 !important;
+    padding: 10px 14px !important;
+}
+
+
+/* 3. Menyulap Kotak Katalog Produk di Sebelah Kiri */
+
+.card-body .btn-outline-primary {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Mengubah garis luar biru pekat jadi abu-abu halus */
+    border-radius: 10px !important;
+    color: #1E293B !important;
+    /* Teks nama produk menjadi Slate Dark */
+    transition: all 0.2s ease !important;
+}
+
+.card-body .btn-outline-primary:hover {
+    background-color: #F8FAFC !important;
+    /* Berubah abu-abu sangat muda saat disentuh */
+    border-color: #CBD5E1 !important;
+}
+
+.card-body .btn-outline-primary .text-muted {
+    color: #64748B !important;
+    /* Warna harga barang dibuat lebih tenang */
+    font-size: 13px !important;
+}
+
+
+/* 4. Mengubah Tombol "+" Biru Besar */
+
+.card-body .btn-primary {
+    background-color: #0EA5E9 !important;
+    /* Menggunakan Ocean Blue (Aksen 10% kita) */
+    border: 1px solid #0EA5E9 !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+}
+
+.card-body .btn-primary:hover {
+    background-color: #0284C7 !important;
+}
+
+
+/* 5. Merapikan Area Tabel Keranjang Belanja Sebelah Kanan */
+
+.card table.table-bordered {
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+.card table.table-bordered th {
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.card table.table-bordered td {
+    color: #334155 !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
     vertical-align: middle !important;
 }
 
 
-/* Desain Badge/Role yang Cantik */
+/* Kotak Input Qty Kecil di dalam tabel keranjang */
 
-.badge-role {
-    display: inline-flex !important;
+.card table.table-bordered td input.form-control-sm {
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+    max-width: 70px !important;
+}
+
+
+/* Tombol Hapus Merah Kecil di dalam tabel keranjang */
+
+.card table.table-bordered td .btn-danger {
+    background-color: transparent !important;
+    border: 1px solid #FCA5A5 !important;
+    /* Outline merah lembut */
+    color: #EF4444 !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
     padding: 4px 10px !important;
     font-size: 12px !important;
-    font-weight: 600 !important;
-    border-radius: 9999px !important;
-    text-transform: capitalize !important;
+    transition: all 0.15s ease !important;
 }
 
-.badge-role.admin {
-    background-color: #EFF6FF !important;
-    color: #2563EB !important;
-}
-
-.badge-role.kasir,
-.badge-role.petugas {
-    background-color: #F3F4F6 !important;
-    color: #4B5563 !important;
-}
-
-
-/* Mengubah Tombol Aksi */
-
-.action-buttons {
-    display: flex !important;
-    gap: 8px !important;
-}
-
-.custom-table td .btn-action-edit {
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    color: #4B5563 !important;
-    border: 1px solid #E5E7EB !important;
-    padding: 6px 12px !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    background-color: #FFFFFF !important;
-    /* PERBAIKAN UTAMA: Menyamakan tinggi tombol */
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1.2 !important;
-}
-
-.btn-action-delete {
-    font-size: 13px !important;
-    font-weight: 500 !important;
+.card table.table-bordered td .btn-danger:hover {
+    background-color: #FEF2F2 !important;
+    border-color: #EF4444 !important;
     color: #DC2626 !important;
-    border: 1px solid #FEE2E2 !important;
-    padding: 6px 12px !important;
-    border-radius: 6px !important;
-    background: #FFF5F5 !important;
-    cursor: pointer !important;
+}
+
+
+/* 6. Menyulap Bagian Footer (Total Harga, Dropdown & Checkout) */
+
+.card-footer {
+    background-color: #FFFFFF !important;
+    /* Mengubah footer abu-abu kasar jadi putih bersih */
+    border-top: 1px solid #E2E8F0 !important;
+    padding: 20px !important;
+}
+
+
+/* Tulisan Total Harga Utama (Misal: Rp 7,000) */
+
+.card-footer strong {
+    font-size: 26px !important;
+    /* Dibuat besar dan sangat tegas */
+    font-weight: 800 !important;
+    color: #1E293B !important;
+    /* Slate Dark pekat */
+    display: block !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.5px !important;
+}
+
+
+/* Dropdown Pilih Pembayaran */
+
+.card-footer select.form-select {
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #1E293B !important;
+    margin-bottom: 12px !important;
+}
+
+
+/* TOMBOL UTAMA TRANSAKSI: Tombol Checkout (Hijau Premium) */
+
+.card-footer .btn-success {
+    background-color: #10B981 !important;
+    /* Emerald Green modern */
+    border: 1px solid #10B981 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgba(16, 185, 129, 0.2) !important;
+    transition: background-color 0.2s ease !important;
+    cursor: pointer;
+}
+
+.card-footer .btn-success:hover {
+    background-color: #059669 !important;
+    /* Hijau lebih dalam saat di-hover */
+}
+
+
+/* TOMBOL SEKUNDER: Tombol Batal Transaksi (Minimalis Halus) */
+
+.card-footer .btn-outline-danger {
+    background-color: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Diubah menjadi outline netral halus agar tidak mengganggu mata kasir */
+    color: #64748B !important;
+    /* Warna teks abu-abu sekunder */
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    transition: all 0.15s ease !important;
+}
+
+.card-footer .btn-outline-danger:hover {
+    background-color: #FEF2F2 !important;
+    /* Berubah menjadi merah lembut hanya saat di-hover */
+    border-color: #FCA5A5 !important;
+    color: #EF4444 !important;
 }
