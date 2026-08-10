@@ -24,7 +24,7 @@ class UserController extends Controller
               ->paginate(10)
               ->withQueryString();
         } else {
-            $users = User::query()->paginate(10)->withQueryString();
+            $users = User::latest()->paginate(10)->withQueryString();
         }
 
         return view('users.index', compact('users'));
