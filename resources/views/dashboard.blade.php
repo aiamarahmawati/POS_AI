@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 <!-- mengirimkan nilai ke title untuk ditampilkan -->
-@section('title', 'Login')
+@section('title', 'Dashboard')
 
 @include('layouts.navbar')
 <!-- batas awal isi konten  -->
 @section('content')
+
+<!-- KODE TAMBAHAN: Membuka kelas pengunci khusus halaman dashboard -->
+<div class="dashboard-page-wrapper">
 
     <div class="container py-4 text-center">
         <div class="container py-4">
@@ -173,6 +176,10 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- batas akhir isi konten  -->
-    @endsection
+</div>
+<!-- KODE TAMBAHAN: Menutup kelas pengunci khusus halaman dashboard -->
+
+<!-- batas akhir isi konten  -->
+@endsection

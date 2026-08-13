@@ -10,6 +10,145 @@
 }
 
 
+/* PANGGIL FONTA PREMIUM DARI GOOGLE FONT (PASTIKAN BERADA DI BARIS PALING ATAS FILE APP.CSS) */
+
+@import url('https://googleapis.com');
+
+/* ==========================================================================
+   1. STYLING HALAMAN LOGIN POS PREMIUM (VERSI DIKUNCI TOTAL - AMAN BAGI DASHBOARD)
+   ========================================================================== */
+
+.login-page-wrapper {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+
+/* Membuat Kotak Login Memiliki Lekukan Mewah & Bayangan Lembut */
+
+.login-page-wrapper .card {
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+
+/* Merapatkan dan Merapikan Kepala Kartu Judul */
+
+.login-page-wrapper .card-header {
+    text-align: center !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 28px 24px 16px 24px !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+
+/* Judul Utama LOGIN POS */
+
+.login-page-wrapper .card-header h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    text-align: center !important;
+    margin: 0 auto 4px auto !important;
+    display: block !important;
+}
+
+
+/* Sub-Judul Kalimat Petunjuk di bawah LOGIN POS */
+
+.login-page-wrapper .card-header .text-muted,
+.login-page-wrapper .card-header small {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+
+/* PERBAIKAN: MENGUNCI CARD BODY KHUSUS HALAMAN LOGIN AGAR DASHBOARD TIDAK IKUT RATA KIRI */
+
+.login-page-wrapper .card-body {
+    padding: 24px !important;
+    text-align: left !important;
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+
+/* Menyulap Teks Label Form (Alamat Email & Kata Sandi) */
+
+.login-page-wrapper .form-label {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.6px !important;
+    color: #475569 !important;
+    margin-bottom: 6px !important;
+}
+
+
+/* Merapikan Kotak Input Form */
+
+.login-page-wrapper .form-control {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    border-radius: 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 11px 14px !important;
+    font-size: 14px !important;
+    color: #334155 !important;
+    background-color: #f8fafc !important;
+    transition: all 0.2s ease !important;
+}
+
+
+/* Efek Interaktif Mengubah Warna Saat Kotak Input Diklik Kasir */
+
+.login-page-wrapper .form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #1e293b !important;
+    box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.12) !important;
+    outline: none !important;
+}
+
+
+/* Merapikan Gaya Tombol Masuk Ke Sistem */
+
+.login-page-wrapper button.btn-submit {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    background-color: #1e293b !important;
+    border: 1px solid #1e293b !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 6px -1px rgba(30, 41, 59, 0.15) !important;
+    transition: all 0.2s ease !important;
+    margin-top: 8px !important;
+}
+
+.login-page-wrapper button.btn-submit:hover {
+    background-color: #0f172a !important;
+    border-color: #0f172a !important;
+    transform: translateY(-1px);
+}
+
+
 /* ---------- NAVBAR ---------- */
 
 .pos-navbar {
@@ -98,31 +237,93 @@
 }
 
 
-/* ---------- HALAMAN DASHBOARD ---------- */
+/* ==========================================================================
+   2. KHUSUS STYLING HALAMAN DASHBOARD (VERSI PASTI KEMBALI KE TENGAH)
+   ========================================================================== */
 
 
-/* ---------- Pengaturan Dasar Latar Belakang ---------- */
+/* Pengaturan Dasar Latar Belakang */
 
 body {
-    /* Mengubah background utama menjadi abu-abu super muda agar kartu putih terlihat mengambang */
     background-color: #F8F9FA !important;
 }
 
 
-/* ---------- Typography & Judul ---------- */
+/* KODE PEMAKSA: Menghancurkan total sisa rata kiri pada 4 kotak atas */
+
+.card-header,
+div.card-header,
+.card-body,
+div.card-body,
+h5.card-title {
+    text-align: center !important;
+    /* Paksa semua elemen teks di dalam kotak rata tengah */
+}
+
+
+/* Memastikan nominal angka besar tetap berbobot dan pas di tengah */
+
+h5.card-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+
+/* Mengunci tinggi 4 kotak atas agar tipis dan rapi */
+
+.row .card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+    margin-bottom: 12px !important;
+    height: 90px !important;
+    min-height: 90px !important;
+}
+
+
+/* Menyusutkan Kepala Kotak Ringkasan */
+
+.row .card .card-header {
+    background: #F8FAFC !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    padding: 6px 12px !important;
+    height: 32px !important;
+}
+
+
+/* Menyusutkan Badan Kotak Ringkasan & Mengunci Flexbox ke Tengah */
+
+.row .card .card-body {
+    padding: 8px 12px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    /* Paksa angka berada tepat di tengah horizontal */
+}
+
+
+/* Typography Judul Bagian Halaman */
 
 h1 {
     font-weight: 700;
     font-size: 26px;
     color: #1E293B;
-    /* Menggunakan Slate Dark (30%) */
     margin-bottom: 24px;
 }
 
 h1 small {
     font-weight: 400;
     color: #64748B;
-    /* Muted Slate */
     font-size: 15px;
 }
 
@@ -130,14 +331,12 @@ h2 {
     font-size: 15px;
     font-weight: 700;
     color: #1E293B;
-    /* Slate Dark */
     margin: 36px 0 16px;
     padding-bottom: 8px;
     border-bottom: 2px solid #E2E8F0;
-    /* Garis pembatas section lebih tegas tapi halus */
-    text-align: left;
+    text-align: left !important;
+    /* Biarkan sub-judul section tetap di kiri */
     text-transform: uppercase;
-    /* Membuat judul sub-section sedikit bergaya industri */
     letter-spacing: 0.5px;
 }
 
@@ -145,66 +344,19 @@ h3 {
     font-size: 14px;
     font-weight: 600;
     color: #334155;
-    text-align: left;
+    text-align: left !important;
+    /* Biarkan sub-judul tabel tetap di kiri */
     margin: 12px 0 12px;
 }
 
 
-/* ---------- Card Statistik Premium (Today's Sales & Cash) ---------- */
-
-.card {
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    /* Batas abu-abu tipis modern */
-    border-radius: 10px !important;
-    /* Sudut sedikit lebih membulat halus */
-    /* Memberikan efek bayangan tipis mewah khas aplikasi modern */
-    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.03) !important;
-    overflow: hidden;
-}
-
-.card-header {
-    background: #F8FAFC !important;
-    /* Area judul kartu sedikit lebih kontras */
-    border-bottom: 1px solid #E2E8F0 !important;
-    font-size: 12px;
-    font-weight: 600;
-    color: #64748B;
-    /* Warna label diperhalus agar fokus utama ke angka */
-    padding: 12px 16px;
-    text-align: left;
-    letter-spacing: 0.3px;
-}
-
-.card-body {
-    padding: 16px;
-    text-align: left;
-    /* Menyamakan alignment konten ke kiri agar rapi */
-}
-
-.card-body .card-title {
-    font-size: 24px;
-    /* Ukuran nominal angka dinaikkan sedikit agar lebih tegas */
-    font-weight: 700;
-    color: #1E293B;
-    /* Slate Dark pekat */
-    margin: 0;
-}
-
-
-/* ---------- Kustomisasi Tabel Inventaris & Best Seller ---------- */
-
-
-/* Memperbaiki tampilan tabel Bootstrap agar bersih dan berjarak pas */
+/* Kustomisasi Tabel Laporan di Bawah (DIPAKSA TETAP RATA KIRI AGAR NYAMAN DIBACA) */
 
 .table {
     border-color: #E2E8F0 !important;
     background-color: #FFFFFF !important;
     margin-top: 10px;
 }
-
-
-/* Merapikan baris judul kolom tabel */
 
 .table thead th {
     background-color: #F8FAFC !important;
@@ -213,10 +365,9 @@ h3 {
     font-weight: 600;
     padding: 12px 16px !important;
     border-bottom: 2px solid #E2E8F0 !important;
+    text-align: left !important;
+    /* Paksa judul kolom tabel rata kiri */
 }
-
-
-/* Merapikan isi baris tabel */
 
 .table tbody td,
 .table tbody th {
@@ -224,10 +375,9 @@ h3 {
     color: #334155 !important;
     font-size: 14px;
     border-bottom: 1px solid #F1F5F9 !important;
+    text-align: left !important;
+    /* Paksa isi data tabel rata kiri */
 }
-
-
-/* Menghilangkan text-center bawaan di tabel jika ada agar sejajar ke kiri dengan judulnya */
 
 .table th,
 .table td {
@@ -235,22 +385,44 @@ h3 {
 }
 
 
-/* ---------- Pewarnaan Khusus Status Kritis (Warna Aksentuasi) ---------- */
-
-
-/* Teks penanda produk habis stok (Stok 0) */
+/* Pewarnaan Khusus Status Kritis */
 
 .text-danger-custom {
     color: #EF4444 !important;
     font-weight: 600;
 }
 
-
-/* Teks penanda produk stok menipis */
-
 .text-warning-custom {
     color: #F59E0B !important;
     font-weight: 600;
+}
+
+
+/* ==========================================================================
+   STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
+   ========================================================================== */
+
+
+/* Menargetkan tag h1 yang menjadi judul utama di setiap halaman */
+
+.container h1,
+.pos-container h1,
+.table-filter-action~h1,
+h1 {
+    font-size: 24px !important;
+    /* Ukuran huruf proporsional dan tegas */
+    font-weight: 700 !important;
+    /* Ketebalan huruf tebal pekat */
+    color: #1E293B !important;
+    /* Menggunakan Slate Dark (senada dengan POS) */
+    letter-spacing: -0.5px !important;
+    /* Jarak antar huruf sedikit rapat agar modern */
+    margin-top: 15px !important;
+    /* Jarak ideal dari navbar atas */
+    margin-bottom: 20px !important;
+    /* Jarak ideal sebelum tombol atau filter cari */
+    text-align: left !important;
+    /* Mengunci posisi rata kiri yang rapi */
 }
 
 
@@ -860,4 +1032,244 @@ h4.mb-3 {
     /* Berubah menjadi merah lembut hanya saat di-hover */
     border-color: #FCA5A5 !important;
     color: #EF4444 !important;
+}
+
+
+/* ==========================================================================
+   KODE PELENGKAP UNTUK MEMBUAT KOTAK CARD PUTIH BERSIH MINIMALIS
+   ========================================================================== */
+
+
+/* Membungkus halaman kasir agar rapi, berada di tengah, dan memiliki jarak ideal */
+
+.pos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+
+/* Kotak Card Utama (Meniru persis gaya kotak putih bertingkat pada Tambah Produk) */
+
+.pos-card-main {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Garis tepi abu-abu sangat tipis */
+    border-radius: 12px !important;
+    /* Sudut melengkung halus */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    /* Shadow halus premium */
+    overflow: hidden;
+}
+
+
+/* Kepala Kotak untuk Judul Halaman "TAMBAH PENJUALAN BARU" */
+
+.pos-card-header {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    padding: 20px 24px !important;
+}
+
+.pos-card-header h4 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    text-transform: uppercase;
+    /* Membuat teks otomatis huruf besar semua */
+    letter-spacing: 0.5px;
+    margin: 0 !important;
+}
+
+
+/* Membatasi tinggi katalog produk di kiri agar sejajar & rapi dengan keranjang di kanan */
+
+.pos-catalog-scroll {
+    max-height: 490px;
+    overflow-y: auto;
+    /* Memunculkan scrollbar hanya jika produk penuh */
+    padding-right: 8px;
+}
+
+
+/* Mengubah tampilan scrollbar katalog produk agar tipis dan minimalis */
+
+.pos-catalog-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pos-catalog-scroll::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 4px;
+}
+
+.pos-catalog-scroll::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+
+/* Membatasi tinggi tabel keranjang belanja agar sejajar seimbang dengan katalog kiri */
+
+.col-md-6 .table-responsive {
+    max-height: 430px;
+    overflow-y: auto;
+    /* Memunculkan scrollbar vertikal hanya jika item belanjaan penuh */
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding-right: 4px;
+}
+
+
+/* Mengubah tampilan scrollbar keranjang belanja agar tipis halus */
+
+.col-md-6 .table-responsive::-webkit-scrollbar {
+    width: 6px;
+}
+
+.col-md-6 .table-responsive::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 4px;
+}
+
+.col-md-6 .table-responsive::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+
+/* detail */
+
+
+/* Styling Pembungkus Utama Halaman Detail */
+
+.detail-invoice-container {
+    max-width: 600px;
+}
+
+
+/* Tombol Kembali Minimalis */
+
+
+/* GANTI KODE .btn-invoice-back YANG LAMA DENGAN INI */
+
+.btn-invoice-back {
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    /* Garis tepi tipis halus */
+    color: #4b5563 !important;
+    /* Warna teks abu-abu elegan */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* Efek bayangan tipis */
+    transition: all 0.2s ease;
+}
+
+
+/* Efek saat tombol disorot kursor */
+
+.btn-invoice-back:hover {
+    background-color: #f9fafb !important;
+    border-color: #d1d5db !important;
+    color: #1f2937 !important;
+}
+
+
+/* Tombol Cetak Struk Modern */
+
+
+/* GANTI KODE .btn-invoice-print YANG LAMA DENGAN INI */
+
+.btn-invoice-print {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #1E293B !important;
+    /* Warna hitam pekat slate (Matching dengan tema POS) */
+    border-color: #1E293B !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+
+/* Efek saat tombol Cetak Struk disorot kursor (Hover) */
+
+.btn-invoice-print:hover {
+    background-color: #0F172A !important;
+    /* Menjadi hitam lebih gelap saat disentuh */
+    border-color: #0F172A !important;
+}
+
+
+/* Teks dan Fonta di Dalam Nota / Struk */
+
+.invoice-receipt-body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+}
+
+
+/* Garis Putus-Putus Pembatas Nota */
+
+.invoice-dashed-line {
+    border-top: 1px dashed #cccccc;
+    margin: 15px 0;
+}
+
+
+/* Ukuran Font Tabel Item Transaksi */
+
+.table-invoice-items {
+    font-size: 14px;
+}
+
+
+/* ==========================================================================
+   CSS KHUSUS CETAK STRUK (HANYA AKTIF SAAT TOMBOL PRINT DIKLIK)
+   ========================================================================== */
+
+@media print {
+    @page {
+        size: auto;
+        margin: 0mm;
+        /* Menghapus margin default browser yang memicu tulisan header/footer */
+    }
+    body {
+        padding: 15mm !important;
+        /* Memberikan jarak kertas sendiri agar isi nota tidak terlalu mepet ke ujung potongan kertas */
+    }
+    /* 1. Sembunyikan semua elemen navigasi dan tombol aksi agar tidak ikut tercetak */
+    nav,
+    .navbar,
+    #sidebar,
+    .btn,
+    .btn-invoice-back,
+    .btn-invoice-print,
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        display: none !important;
+    }
+    /* 2. Hilangkan background abu-abu bawaan browser dan paksa warna putih bersih */
+    body,
+    html {
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* 3. Atur kotak nota agar memenuhi ukuran kertas printer thermal */
+    .detail-invoice-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* 4. Hilangkan border kotak kartu (card) dan bayangan (shadow) saat dicetak */
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+    .card-body {
+        padding: 10px !important;
+    }
 }

@@ -21,21 +21,21 @@ class PenjualanController extends Controller
 
         $sales = Penjualan::query()
 
-        // Filter berdasarkan role
-        ->when($user->role->name === 'kasir', function ($query) use ($user){
-            $query->where('user_id', $user->id);
-        })
+            // Filter berdasarkan role
+            ->when($user->role->name === 'kasir', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })
 
-        // Search nama user
-        ->when($keyword, function ($query) use ($keyword) {
-            $query->whereHas('user', function ($q) use ($keyword) {
-                $q->where('name', 'like', '%' . $keyword . '%');
-            });
-        })
+            // Search nama user
+            ->when($keyword, function ($query) use ($keyword) {
+                $query->whereHas('user', function ($q) use ($keyword) {
+                    $q->where('name', 'like', '%' . $keyword . '%');
+                });
+            })
 
-        ->latest()
-        ->paginate(10)
-        ->withQueryString();
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
         return view('penjualan.index', compact('sales'));
     }
@@ -58,12 +58,12 @@ class PenjualanController extends Controller
 
         $keyword = $request->input('search');
 
-        if($keyword) {
+        if ($keyword) {
             $products = Produk::when($keyword, function ($query) use ($keyword) {
                 $query->where('nama', 'like', '%' . $keyword . '%');
             })
-            ->orderBy('nama')
-            ->get();
+                ->orderBy('nama')
+                ->get();
         } else {
             $products = Produk::orderBy('nama')->get();
         }
@@ -84,10 +84,17 @@ class PenjualanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    // GANTI nama fungsi menjadi show
+    public function show($id)
     {
-        //
+        // Mengambil data penjualan beserta kasir (user) dan item produk yang dibeli
+        $sale = Penjualan::with(['user', 'itemPenjualan.produk'])->findOrFail($id);
+
+        // Tetap mengarahkan ke halaman detail baru Anda
+        return view('penjualan.detail', compact('sale'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -130,7 +137,7 @@ class PenjualanController extends Controller
             $penjualan->update([
                 'metode_pembayaran' => $request->payment_method,
                 'total_pembayaran'  => $total,
-                'status'            =>'COMPLETED'
+                'status'            => 'COMPLETED'
             ]);
         });
 

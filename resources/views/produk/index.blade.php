@@ -13,7 +13,7 @@
         <div class="table-filter-action">
             <form action="{{ route('produk.index') }}" method="GET" class="search-wrapper">
                 <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                    placeholder="Search nama produk...">
+                    placeholder="Search nama produk..." autocomplete="off">
                 <button class="search-btn" type="submit">
                     Search
                 </button>
@@ -29,7 +29,7 @@
             <table class="custom-table">
                 <thead>
                     <tr>
-                        <th style="width: 60px;">#</th>
+                        <th style="width: 60px;">No</th>
                         <th>User</th>
                         <th style="width: 80px;">Foto</th>
                         <th>Nama</th>

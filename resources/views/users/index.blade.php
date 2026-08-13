@@ -13,7 +13,7 @@
         <div class="table-filter-action">
             <form action="{{ route('admin.users') }}" method="GET" class="search-wrapper">
                 <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                    placeholder="Search username or email...">
+                    placeholder="Search username or email..." autocomplete="off">
                 <button class="search-btn" type="submit">Search</button>
             </form>
 
@@ -26,7 +26,7 @@
             <table class="custom-table">
                 <thead>
                     <tr>
-                        <th style="width: 60px;">#</th>
+                        <th style="width: 60px;">No</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
