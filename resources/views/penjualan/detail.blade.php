@@ -5,6 +5,145 @@
 @include('layouts.navbar')
 
 @section('content')
+
+<style>
+    /* detail */
+
+
+/* Styling Pembungkus Utama Halaman Detail */
+
+.detail-invoice-container {
+    max-width: 600px;
+}
+
+
+/* Tombol Kembali Minimalis */
+
+
+/* GANTI KODE .btn-invoice-back YANG LAMA DENGAN INI */
+
+.btn-invoice-back {
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    /* Garis tepi tipis halus */
+    color: #4b5563 !important;
+    /* Warna teks abu-abu elegan */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* Efek bayangan tipis */
+    transition: all 0.2s ease;
+}
+
+
+/* Efek saat tombol disorot kursor */
+
+.btn-invoice-back:hover {
+    background-color: #f9fafb !important;
+    border-color: #d1d5db !important;
+    color: #1f2937 !important;
+}
+
+
+/* Tombol Cetak Struk Modern */
+
+
+/* GANTI KODE .btn-invoice-print YANG LAMA DENGAN INI */
+
+.btn-invoice-print {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #1E293B !important;
+    /* Warna hitam pekat slate (Matching dengan tema POS) */
+    border-color: #1E293B !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+
+/* Efek saat tombol Cetak Struk disorot kursor (Hover) */
+
+.btn-invoice-print:hover {
+    background-color: #0F172A !important;
+    /* Menjadi hitam lebih gelap saat disentuh */
+    border-color: #0F172A !important;
+}
+
+
+/* Teks dan Fonta di Dalam Nota / Struk */
+
+.invoice-receipt-body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+}
+
+
+/* Garis Putus-Putus Pembatas Nota */
+
+.invoice-dashed-line {
+    border-top: 1px dashed #cccccc;
+    margin: 15px 0;
+}
+
+
+/* Ukuran Font Tabel Item Transaksi */
+
+.table-invoice-items {
+    font-size: 14px;
+}
+
+
+/* ==========================================================================
+   CSS KHUSUS CETAK STRUK (HANYA AKTIF SAAT TOMBOL PRINT DIKLIK)
+   ========================================================================== */
+
+@media print {
+    @page {
+        size: auto;
+        margin: 0mm;
+        /* Menghapus margin default browser yang memicu tulisan header/footer */
+    }
+    body {
+        padding: 15mm !important;
+        /* Memberikan jarak kertas sendiri agar isi nota tidak terlalu mepet ke ujung potongan kertas */
+    }
+    /* 1. Sembunyikan semua elemen navigasi dan tombol aksi agar tidak ikut tercetak */
+    nav,
+    .navbar,
+    #sidebar,
+    .btn,
+    .btn-invoice-back,
+    .btn-invoice-print,
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        display: none !important;
+    }
+    /* 2. Hilangkan background abu-abu bawaan browser dan paksa warna putih bersih */
+    body,
+    html {
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* 3. Atur kotak nota agar memenuhi ukuran kertas printer thermal */
+    .detail-invoice-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* 4. Hilangkan border kotak kartu (card) dan bayangan (shadow) saat dicetak */
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+    .card-body {
+        padding: 10px !important;
+    }
+}
+</style>
+
 <div class="container mt-4 detail-invoice-container">
     
     <!-- Bagian Tombol Aksi Atas -->
@@ -29,7 +168,7 @@
     <!-- Kotak Nota Transaksi -->
     <div class="card shadow-sm">
         <div class="card-body invoice-receipt-body">
-            <h4 class="text-center mb-1"><strong>DETAIL PENJUALAN</strong></h4>
+            <h4 class="text-center mb-1"><strong>STRUK PENJUALAN</strong></h4>
             <p class="text-center text-muted small">ID Transaksi: #{{ $sale->id }}</p>
             <div class="invoice-dashed-line"></div>
 

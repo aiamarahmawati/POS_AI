@@ -3,14 +3,329 @@
 @section('title', 'POS')
 
 @section('content')
+<style>
+    /* ==========================================================================
+   HALAMAN TRANSAKSI UTAMA POS / KASIR
+   ========================================================================== */
+
+
+/* 1. Mengubah Judul Halaman Atas */
+
+h4.mb-3 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    /* Slate Dark pekat */
+    margin-bottom: 20px !important;
+}
+
+
+/* 2. Merapikan Kotak Pencarian Produk */
+
+.card-body input[placeholder="Cari produk..."] {
+    border-radius: 8px !important;
+    border: 1px solid #E2E8F0 !important;
+    padding: 10px 14px !important;
+}
+
+
+/* 3. Menyulap Kotak Katalog Produk di Sebelah Kiri */
+
+.card-body .btn-outline-primary {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Mengubah garis luar biru pekat jadi abu-abu halus */
+    border-radius: 10px !important;
+    color: #1E293B !important;
+    /* Teks nama produk menjadi Slate Dark */
+    transition: all 0.2s ease !important;
+}
+
+.card-body .btn-outline-primary:hover {
+    background-color: #F8FAFC !important;
+    /* Berubah abu-abu sangat muda saat disentuh */
+    border-color: #CBD5E1 !important;
+}
+
+.card-body .btn-outline-primary .text-muted {
+    color: #64748B !important;
+    /* Warna harga barang dibuat lebih tenang */
+    font-size: 13px !important;
+}
+
+
+/* 4. Mengubah Tombol "+" Biru Besar */
+
+.card-body .btn-primary {
+    background-color: #0EA5E9 !important;
+    /* Menggunakan Ocean Blue (Aksen 10% kita) */
+    border: 1px solid #0EA5E9 !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+}
+
+.card-body .btn-primary:hover {
+    background-color: #0284C7 !important;
+}
+
+
+/* 5. Merapikan Area Tabel Keranjang Belanja Sebelah Kanan */
+
+.card table.table-bordered {
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+.card table.table-bordered th {
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.card table.table-bordered td {
+    color: #334155 !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    vertical-align: middle !important;
+}
+
+
+/* Kotak Input Qty Kecil di dalam tabel keranjang */
+
+.card table.table-bordered td input.form-control-sm {
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+    max-width: 70px !important;
+}
+
+
+/* Tombol Hapus Merah Kecil di dalam tabel keranjang */
+
+.card table.table-bordered td .btn-danger {
+    background-color: transparent !important;
+    border: 1px solid #FCA5A5 !important;
+    /* Outline merah lembut */
+    color: #EF4444 !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    transition: all 0.15s ease !important;
+}
+
+.card table.table-bordered td .btn-danger:hover {
+    background-color: #FEF2F2 !important;
+    border-color: #EF4444 !important;
+    color: #DC2626 !important;
+}
+
+
+/* 6. Menyulap Bagian Footer (Total Harga, Dropdown & Checkout) */
+
+.card-footer {
+    background-color: #FFFFFF !important;
+    /* Mengubah footer abu-abu kasar jadi putih bersih */
+    border-top: 1px solid #E2E8F0 !important;
+    padding: 20px !important;
+}
+
+
+/* Tulisan Total Harga Utama (Misal: Rp 7,000) */
+
+.card-footer strong {
+    font-size: 26px !important;
+    /* Dibuat besar dan sangat tegas */
+    font-weight: 800 !important;
+    color: #1E293B !important;
+    /* Slate Dark pekat */
+    display: block !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.5px !important;
+}
+
+
+/* Dropdown Pilih Pembayaran */
+
+.card-footer select.form-select {
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #1E293B !important;
+    margin-bottom: 12px !important;
+}
+
+
+/* TOMBOL UTAMA TRANSAKSI: Tombol Checkout (Hijau Premium) */
+
+.card-footer .btn-success {
+    background-color: #10B981 !important;
+    /* Emerald Green modern */
+    border: 1px solid #10B981 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px 0 rgba(16, 185, 129, 0.2) !important;
+    transition: background-color 0.2s ease !important;
+    cursor: pointer;
+}
+
+.card-footer .btn-success:hover {
+    background-color: #059669 !important;
+    /* Hijau lebih dalam saat di-hover */
+}
+
+
+/* TOMBOL SEKUNDER: Tombol Batal Transaksi (Minimalis Halus) */
+
+.card-footer .btn-outline-danger {
+    background-color: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Diubah menjadi outline netral halus agar tidak mengganggu mata kasir */
+    color: #64748B !important;
+    /* Warna teks abu-abu sekunder */
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    transition: all 0.15s ease !important;
+}
+
+.card-footer .btn-outline-danger:hover {
+    background-color: #FEF2F2 !important;
+    /* Berubah menjadi merah lembut hanya saat di-hover */
+    border-color: #FCA5A5 !important;
+    color: #EF4444 !important;
+}
+
+/* ==========================================================================
+   KODE PELENGKAP UNTUK MEMBUAT KOTAK CARD PUTIH BERSIH MINIMALIS
+   ========================================================================== */
+
+
+/* Membungkus halaman kasir agar rapi, berada di tengah, dan memiliki jarak ideal */
+
+.pos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+
+/* Kotak Card Utama (Meniru persis gaya kotak putih bertingkat pada Tambah Produk) */
+
+.pos-card-main {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    /* Garis tepi abu-abu sangat tipis */
+    border-radius: 12px !important;
+    /* Sudut melengkung halus */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    /* Shadow halus premium */
+    overflow: hidden;
+}
+
+
+/* Kepala Kotak untuk Judul Halaman "TAMBAH PENJUALAN BARU" */
+
+.pos-card-header {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    padding: 20px 24px !important;
+}
+
+.pos-card-header h4 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+    text-transform: uppercase;
+    /* Membuat teks otomatis huruf besar semua */
+    letter-spacing: 0.5px;
+    margin: 0 !important;
+}
+
+
+/* Membatasi tinggi katalog produk di kiri agar sejajar & rapi dengan keranjang di kanan */
+
+.pos-catalog-scroll {
+    max-height: 490px;
+    overflow-y: auto;
+    /* Memunculkan scrollbar hanya jika produk penuh */
+    padding-right: 8px;
+}
+
+
+/* Mengubah tampilan scrollbar katalog produk agar tipis dan minimalis */
+
+.pos-catalog-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pos-catalog-scroll::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 4px;
+}
+
+.pos-catalog-scroll::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+
+/* Membatasi tinggi tabel keranjang belanja agar sejajar seimbang dengan katalog kiri */
+
+.col-md-6 .table-responsive {
+    max-height: 430px;
+    overflow-y: auto;
+    /* Memunculkan scrollbar vertikal hanya jika item belanjaan penuh */
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding-right: 4px;
+}
+
+
+/* Mengubah tampilan scrollbar keranjang belanja agar tipis halus */
+
+.col-md-6 .table-responsive::-webkit-scrollbar {
+    width: 6px;
+}
+
+.col-md-6 .table-responsive::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 4px;
+}
+
+.col-md-6 .table-responsive::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+</style>
 <!-- 1. PEMBUNGKUS BARU: Menyelaraskan seluruh halaman di posisi tengah yang seimbang -->
 <div class="pos-container">
 
-    @if(session('errors'))
-        <div class="alert alert-danger">
-            {{ session('errors') }}
-        </div>
-    @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <!-- 2. KOTAK CARD UTAMA: Membuat wadah putih bertingkat dengan bayangan halus -->
     <div class="pos-card-main">
