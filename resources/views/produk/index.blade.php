@@ -265,7 +265,7 @@
             </form>
 
             @can('create', App\Models\Produk::class)
-                <a href="{{ route('produk.create') }}" class="btn-create-user">Create</a>
+                <a href="{{ route('produk.create') }}" class="btn-create-user">+ Tambah Produk</a>
             @endcan
         </div>
 
@@ -278,6 +278,7 @@
                         <th>User</th>
                         <th style="width: 80px;">Foto</th>
                         <th>Nama</th>
+                        <th>Jenis</th>
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
                         <th style="width: 90px;">Stok</th>
@@ -295,6 +296,7 @@
                                     style="height: 44px; width: 44px; object-fit: cover; border-radius: 6px; border: 1px solid #E2E8F0;">
                             </td>
                             <td class="fw-semibold">{{ $product->nama }}</td>
+                            <td>{{ $product->jenis->nama ??'Tidak ada jenis' }}</td>
                             <!-- 3. FORMATTING ANGKA: Menambahkan Rp dan format ribuan -->
                             <td>Rp {{ number_format($product->harga_beli, 0, ',', '.') }}</td>
                             <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td>

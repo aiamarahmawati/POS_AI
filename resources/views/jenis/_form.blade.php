@@ -120,60 +120,29 @@ div.card-header h1 {
 }
 </style>
 <div class="mb-3">
-    <label class="form-label">Nama</label>
-    <input type="text" name="name"
-           class="form-control @error('name') is-invalid @enderror"
-           value="{{ old('name', $user->name ?? '') }}">
-    @error('name')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
+    <!-- Memanggil class .form-label dari CSS Anda -->
+    <label class="form-label">Nama Jenis</label>
+    
+    <!-- Memanggil class .form-control dari CSS Anda -->
+    <input type="text" name="nama" class="form-control" value="{{ old('nama', $jenis->nama ?? '') }}" required>
+    
+    @error('nama')
+        <!-- Memanggil class invalid-feedback bawaan untuk pesan eror minimalis -->
+        <div class="invalid-feedback d-block">{{ $message }}</div>
     @enderror
 </div>
 
-<div class="mb-3">
-    <label class="form-label">Email</label>
-    <input type="email" name="email"
-           class="form-control @error('email') is-invalid @enderror"
-           value="{{ old('email', $user->email ?? '') }}">
-    @error('email')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-    @enderror
-</div>
-
-<div class="mb-3">
-    <label class="form-label">Password</label>
-    <input type="password" name="password"
-           class="form-control @error('password') is-invalid @enderror">
-    @error('password')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-    @enderror
-</div>
-
-<div class="mb-3">
-    <label class="form-label">Role</label>
-    <select name="role_id"
-            class="form-select @error('role_id') is-invalid @enderror">
-        <option value="">== Pilih Role ==</option>
-        @foreach ($roles as $role)
-            <option value="{{ $role->id }}"
-                @selected(old('role_id', $user->role_id ?? '') == $role->id)>
-                {{ ucfirst($role->name) }}
-            </option>
-        @endforeach
-    </select> <!-- PENUTUP SELECT SUDAH DIPERBAIKI DI SINI -->
-    @error('role_id')
-           <div class="invalid-feedback">
-            {{ $message }}
-           </div>
-    @enderror
-</div>
-
+<!-- CONTAINER TOMBOL AKSI: Memanggil class .form-actions dari CSS Anda agar berjejer rapi menyamping -->
 <div class="form-actions">
-    <button type="submit" class="btn-submit">Simpan</button>
-    <a href="{{ route('admin.users') }}" class="btn-cancel">Kembali</a>
+    
+    <!-- Tombol Simpan: Memanggil class .btn-submit dari CSS Anda -->
+    <button type="submit" class="btn-submit">
+        Simpan
+    </button>
+    
+    <!-- Tombol Kembali: Memanggil class .btn-cancel dari CSS Anda -->
+    <a href="{{ route('jenis.index') }}" class="btn-cancel">
+        Kembali
+    </a>
+    
 </div>

@@ -282,7 +282,7 @@
                 </button>
             </form>
 
-            <a href="{{ route('penjualan.create') }}" class="btn-create-user">Create</a>
+            <a href="{{ route('penjualan.create') }}" class="btn-create-user">+ Tambah Penjualan</a>
         </div>
 
         <!-- 2. STRUKTUR TABEL BARU: Menggunakan class custom-table agar otomatis putih bersih -->
@@ -346,7 +346,7 @@
                     @empty
                         <tr>
                             <td colspan="7" class="text-center text-muted py-5">
-                                <h4>Data Tidak Ditemukan</h4>
+                                <h4>Data penjualan tidak tersedia</h4>
                             </td>
                         </tr>
                     @endforelse

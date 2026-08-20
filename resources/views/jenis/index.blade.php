@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title', 'Jenis')
 
 @include('layouts.navbar')
 
 @section('content')
-
 <style>
 .container h1,
 .pos-container h1,
@@ -27,7 +26,6 @@ h1 {
     /* Mengunci posisi rata kiri yang rapi */
 }
 /* ---------- 1. Tata Letak Filter & Tombol Create ---------- */
-
 .table-filter-action {
     display: flex;
     justify-content: space-between;
@@ -35,16 +33,12 @@ h1 {
     margin-bottom: 24px;
     gap: 16px;
 }
-
-
 /* Kotak Pembungkus Search */
-
 .search-wrapper {
     display: flex;
     max-width: 400px;
     width: 100%;
 }
-
 .search-input {
     flex: 1;
     border: 1px solid #E2E8F0 !important;
@@ -55,13 +49,11 @@ h1 {
     background-color: #FFFFFF;
     transition: all 0.2s ease;
 }
-
 .search-input:focus {
     border-color: #0EA5E9 !important;
     box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
     outline: none;
 }
-
 .search-btn {
     border: 1px solid #E2E8F0 !important;
     border-left: none !important;
@@ -74,15 +66,11 @@ h1 {
     transition: all 0.2s ease;
     cursor: pointer;
 }
-
 .search-btn:hover {
     background-color: #F1F5F9 !important;
     color: #1E293B !important;
 }
-
-
 /* ---------- 2. Tombol Create Utama (Aksen Biru Modern) ---------- */
-
 .btn-create-user {
     background-color: #0EA5E9 !important;
     color: #FFFFFF !important;
@@ -95,14 +83,10 @@ h1 {
     box-shadow: 0 1px 2px 0 rgba(14, 165, 233, 0.2) !important;
     transition: background-color 0.2s ease;
 }
-
 .btn-create-user:hover {
     background-color: #0284C7 !important;
 }
-
-
 /* ---------- 3. Pengunci Tabel Putih Bersih & Membulat ---------- */
-
 table.custom-table {
     width: 100% !important;
     background-color: #FFFFFF !important;
@@ -116,26 +100,19 @@ table.custom-table {
     box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.02) !important;
     margin-top: 20px !important;
 }
-
-
 /* Merapikan sudut-sudut lengkung tabel */
-
 table.custom-table tr:first-child th:first-child {
     border-top-left-radius: 12px;
 }
-
 table.custom-table tr:first-child th:last-child {
     border-top-right-radius: 12px;
 }
-
 table.custom-table tr:last-child td:first-child {
     border-bottom-left-radius: 12px;
 }
-
 table.custom-table tr:last-child td:last-child {
     border-bottom-right-radius: 12px;
 }
-
 table.custom-table th {
     background-color: #F8FAFC !important;
     color: #64748B !important;
@@ -147,7 +124,6 @@ table.custom-table th {
     border-bottom: 2px solid #E2E8F0 !important;
     text-align: left;
 }
-
 table.custom-table td {
     padding: 14px 16px !important;
     color: #334155 !important;
@@ -156,42 +132,10 @@ table.custom-table td {
     text-align: left;
     vertical-align: middle;
 }
-
 table.custom-table tbody tr:hover {
     background-color: #F8FAFC !important;
 }
-
-
-/* ---------- 4. Badge Status Role Kotak Lembut Premium ---------- */
-
-span.badge-role {
-    display: inline-block !important;
-    padding: 6px 12px !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    border-radius: 6px !important;
-    text-transform: capitalize !important;
-}
-
-
-/* Warna spesifik jika class-nya 'admin' */
-
-span.badge-role.admin {
-    background-color: #EFF6FF !important;
-    color: #2563EB !important;
-}
-
-
-/* Warna spesifik jika class-nya 'kasir' */
-
-span.badge-role.kasir {
-    background-color: #F0FDF4 !important;
-    color: #16A34A !important;
-}
-
-
 /* ---------- 5. Tombol Aksi Minimalis (Sederhana & Elegan) ---------- */
-
 .btn-action-edit {
     background: transparent !important;
     border: 1px solid #E2E8F0 !important;
@@ -201,13 +145,11 @@ span.badge-role.kasir {
     text-decoration: none !important;
     transition: all 0.15s ease;
 }
-
 .btn-action-edit:hover {
     background: #F8FAFC !important;
     border-color: #CBD5E1 !important;
     color: #1E293B !important;
 }
-
 .btn-action-delete {
     background: transparent !important;
     border: 1px solid #E2E8F0 !important;
@@ -216,79 +158,70 @@ span.badge-role.kasir {
     border-radius: 6px !important;
     transition: all 0.15s ease;
 }
-
 .btn-action-delete:hover {
     background: #FEF2F2 !important;
     border-color: #FCA5A5 !important;
     color: #DC2626 !important;
 }
-
 </style>
-    <!-- Tambahkan pembungkus kontainer ini agar jarak kanan kirinya seimbang -->
-    <div class="container mt-4">
+<div class="container py-4">
 
-        <h1 class="mb-4">Users</h1>
+    <!-- 1. JUDUL HALAMAN -->
+    <h1>Daftar Jenis</h1>
 
-        <div class="table-filter-action">
-            <form action="{{ route('admin.users') }}" method="GET" class="search-wrapper">
-                <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                    placeholder="Search username or email..." autocomplete="off">
-                <button class="search-btn" type="submit">Search</button>
-            </form>
+    <!-- 3. TATA LETAK FILTER ACTION & TOMBOL TAMBAH -->
+    <div class="table-filter-action">
+        <form action="{{ route('jenis.index') }}" method="GET" class="search-wrapper">
+            <input type="text" name="search" value="{{ request('search') }}" class="search-input"
+                placeholder="Search nama jenis produk..." autocomplete="off">
+            <button class="search-btn" type="submit">Search</button>
+        </form>
 
-            <a href="{{ route('admin.users.create') }}" class="btn-create-user">
-                + Tambah Users
-            </a>
-        </div>
-
-        <div class="table-responsive">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th style="width: 60px;">No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th style="width: 200px; text-align: right;">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $users->firstItem() + $loop->index }}</td>
-                            <td class="fw-semibold">{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                <span class="badge-role {{ Str::slug($user->role->name) }}">
-                                    {{ $user->role->name }}
-                                </span>
-                            </td>
-                            <!-- Cari bagian loop tabel aksi Anda, ganti menjadi struktur super rapi ini: -->
-                            <td>
-                                <div class="d-flex gap-2 justify-content-end align-items-center">
-                                    <!-- TOMBOL EDIT: Ditambah class py-1 px-2 lh-sm fs-7 -->
-                                    <a href="{{ route('admin.users.edit', $user) }}"
-                                        class="btn btn-action-edit py-1 px-2 lh-sm" style="font-size: 13px !important;">
-                                        Edit Akun
-                                    </a>
-                                    <!-- TOMBOL HAPUS: Disamakan class padding-nya py-1 px-2 lh-sm -->
-                                    <form action="{{ route('admin.users.destroy', $user) }}" method="POST"
-                                        class="d-inline m-0 p-0">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-action-delete py-1 px-2 lh-sm"
-                                            style="font-size: 13px !important;"
-                                            onclick="return confirm('Yakin hapus user ini?')">
-                                            Hapus
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
+        <a href="{{ route('jenis.create') }}" class="btn-create-user">
+            + Tambah Jenis
+        </a>
     </div>
+
+    <!-- 4. KOTAK TABEL DATA -->
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th style="width: 80px;">No</th>
+                    <th>Nama</th>
+                    <th style="width: 200px; text-align: right;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($jenis as $index => $item)
+                <tr class="align-middle">
+                    <td>{{ $index + 1 }}</td>
+                    <td style="font-weight: 600;">{{ $item->nama }}</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-end align-items-center">
+                            <a href="{{ route('jenis.edit', $item) }}" class="btn btn-action-edit py-1 px-2 lh-sm" style="font-size: 13px !important;">
+                                Edit
+                            </a>
+                            <form action="{{ route('jenis.destroy', $item) }}" method="POST" class="d-inline m-0 p-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-action-delete py-1 px-2 lh-sm" style="font-size: 13px !important;" onclick="return confirm('Yakin hapus?')">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="3" class="text-center text-muted py-5">
+                        Belum ada data jenis
+                    </td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+</div>
 @endsection
