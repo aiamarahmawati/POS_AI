@@ -8,8 +8,8 @@
 
     <style>
         /* ==========================================================================
-       STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
-       ========================================================================== */
+               STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
+               ========================================================================== */
 
         /* Menargetkan tag h1 yang menjadi judul utama di setiap halaman */
 
@@ -34,8 +34,8 @@
         }
 
         /* ==========================================================================
-       HALAMAN MANAGEMENT DATA (USERS & MASTER DATA) - FINAL PERFECTED
-       ========================================================================== */
+               HALAMAN MANAGEMENT DATA (USERS & MASTER DATA) - FINAL PERFECTED
+               ========================================================================== */
         /* ---------- 1. Tata Letak Filter & Tombol Create ---------- */
 
         .table-filter-action {
@@ -258,9 +258,9 @@
         <div class="table-filter-action">
             <form action="{{ route('produk.index') }}" method="GET" class="search-wrapper">
                 <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                    placeholder="Search nama produk..." autocomplete="off">
+                    placeholder="Cari nama produk..." autocomplete="off">
                 <button class="search-btn" type="submit">
-                    Search
+                    Cari
                 </button>
             </form>
 
@@ -282,7 +282,9 @@
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
                         <th style="width: 90px;">Stok</th>
-                        <th style="width: 200px; text-align: right;">Aksi</th>
+                        @if (auth()->user()->role === 'admin')
+                            <th style="width: 200px; text-align: right;">Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -296,7 +298,7 @@
                                     style="height: 44px; width: 44px; object-fit: cover; border-radius: 6px; border: 1px solid #E2E8F0;">
                             </td>
                             <td class="fw-semibold">{{ $product->nama }}</td>
-                            <td>{{ $product->jenis->nama ??'Tidak ada jenis' }}</td>
+                            <td>{{ $product->jenis->nama ?? 'Tidak ada jenis' }}</td>
                             <!-- 3. FORMATTING ANGKA: Menambahkan Rp dan format ribuan -->
                             <td>Rp {{ number_format($product->harga_beli, 0, ',', '.') }}</td>
                             <td>Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</td>
@@ -308,32 +310,34 @@
                                     <span>{{ $product->stok }}</span>
                                 @endif
                             </td>
-                            <td>
-                                <!-- 5. TOMBOL AKSI: Menggunakan kelas minimalis outline yang elegan -->
-                                <div class="d-flex gap-2 justify-content-end align-items-center">
-                                    <!-- KEMBALIKAN KE KODE ASLI ANDA YANG AMAN -->
-                                    @can('update', $product)
-                                        <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
-                                    @endcan
-                                    @can('delete', $product)
-                                        <form action="{{ route('produk.destroy', $product) }}" method="POST"
-                                            class="d-inline m-0 p-0">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-action-delete py-1 px-2 lh-sm"
-                                                style="font-size: 13px !important;"
-                                                onclick="return confirm('Apakah yakin akan menghapus produk ini?')">
-                                                Hapus
-                                            </button>
-                                        </form>
-                                    @endcan
-                                </div>
-                            </td>
+                            @if (auth()->user()->role === 'admin')
+                                <td>
+                                    <!-- 5. TOMBOL AKSI: Menggunakan kelas minimalis outline yang elegan -->
+                                    <div class="d-flex gap-2 justify-content-end align-items-center">
+                                        @can('update', $product)
+                                            <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
+                                        @endcan
+                                        @can('delete', $product)
+                                            <form action="{{ route('produk.destroy', $product) }}" method="POST"
+                                                class="d-inline m-0 p-0">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-action-delete py-1 px-2 lh-sm"
+                                                    style="font-size: 13px !important;"
+                                                    onclick="return confirm('Apakah yakin akan menghapus produk ini?')">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        @endcan
+                                    </div>
+                                </td>
+                            @endif
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-center text-muted py-5">
-                                <h4>Data produk tidak tersedia.</h4>
+                            <td colspan="{{ auth()->user()->role === 'admin' ? 9 : 8 }}"
+                                class="text-center text-muted py-5">
+                                Data produk tidak tersedia.
                             </td>
                         </tr>
                     @endforelse

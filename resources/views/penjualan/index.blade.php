@@ -276,9 +276,9 @@
         <div class="table-filter-action">
             <form action="{{ route('penjualan.index') }}" method="GET" class="search-wrapper">
                 <input type="text" name="search" value="{{ request()->search }}" class="search-input"
-                    placeholder="Search penjualan..." autocomplete="off">
+                    placeholder="Cari penjualan..." autocomplete="off">
                 <button class="search-btn" type="submit">
-                    Search
+                    Cari
                 </button>
             </form>
 
@@ -346,7 +346,7 @@
                     @empty
                         <tr>
                             <td colspan="7" class="text-center text-muted py-5">
-                                <h4>Data penjualan tidak tersedia</h4>
+                                Data penjualan tidak tersedia
                             </td>
                         </tr>
                     @endforelse

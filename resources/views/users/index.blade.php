@@ -232,12 +232,12 @@ span.badge-role.kasir {
         <div class="table-filter-action">
             <form action="{{ route('admin.users') }}" method="GET" class="search-wrapper">
                 <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                    placeholder="Search username or email..." autocomplete="off">
-                <button class="search-btn" type="submit">Search</button>
+                    placeholder="Cari username atau email..." autocomplete="off">
+                <button class="search-btn" type="submit">Cari</button>
             </form>
 
             <a href="{{ route('admin.users.create') }}" class="btn-create-user">
-                + Tambah Users
+                + Tambah User
             </a>
         </div>
 
@@ -246,7 +246,7 @@ span.badge-role.kasir {
                 <thead>
                     <tr>
                         <th style="width: 60px;">No</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th style="width: 200px; text-align: right;">Aksi</th>

@@ -26,7 +26,7 @@ class JenisController extends Controller
 
         Jenis::create($request->only('nama'));
 
-        return redirect()->route('jenis.index')->with('success', 'Jenis berhasil ditambahkan');
+        return redirect()->route('jenis.index')->with('success', 'Jenis berhasil ditambahkan.');
     }
 
     public function show(Jenis $jenis)

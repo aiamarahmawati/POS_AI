@@ -167,14 +167,14 @@ table.custom-table tbody tr:hover {
 <div class="container py-4">
 
     <!-- 1. JUDUL HALAMAN -->
-    <h1>Daftar Jenis</h1>
+    <h1>Jenis</h1>
 
     <!-- 3. TATA LETAK FILTER ACTION & TOMBOL TAMBAH -->
     <div class="table-filter-action">
         <form action="{{ route('jenis.index') }}" method="GET" class="search-wrapper">
             <input type="text" name="search" value="{{ request('search') }}" class="search-input"
-                placeholder="Search nama jenis produk..." autocomplete="off">
-            <button class="search-btn" type="submit">Search</button>
+                placeholder="Cari nama jenis..." autocomplete="off">
+            <button class="search-btn" type="submit">Cari</button>
         </form>
 
         <a href="{{ route('jenis.create') }}" class="btn-create-user">
@@ -215,7 +215,7 @@ table.custom-table tbody tr:hover {
                 @empty
                 <tr>
                     <td colspan="3" class="text-center text-muted py-5">
-                        Belum ada data jenis
+                        Belum ada jenis
                     </td>
                 </tr>
                 @endforelse
