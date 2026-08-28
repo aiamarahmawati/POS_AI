@@ -205,7 +205,7 @@ table.custom-table tbody tr:hover {
                             <form action="{{ route('jenis.destroy', $item) }}" method="POST" class="d-inline m-0 p-0">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-action-delete py-1 px-2 lh-sm" style="font-size: 13px !important;" onclick="return confirm('Yakin hapus?')">
+                                <button type="submit" class="btn btn-action-delete py-1 px-2 lh-sm" style="font-size: 13px !important;" onclick="return confirm('Apakah Anda yakin akan menghapus jenis ini?')">
                                     Hapus
                                 </button>
                             </form>

@@ -92,7 +92,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.users.edit', $user->id)->with('success', 'User Updated');
+        return redirect()->route('admin.users.edit', $user->id)->with('success', 'User berhasil diperbarui.');
     }
 
     /**
@@ -102,6 +102,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return back()->with('success', 'User deleted');
+        return back()->with('success', 'User berhasil dihapus.');
     }
 }

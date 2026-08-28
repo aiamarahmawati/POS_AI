@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchRequest;
 use App\Models\Jenis;
 use Illuminate\Http\Request;
 
 class JenisController extends Controller
 {
-    public function index()
+    public function index(SearchRequest $request)
     {
-        $jenis = Jenis::latest()->get();
+
+        $keyword = $request->input('search');
+
+        $jenis = Jenis::when($keyword, function ($query, $keyword) {
+            $query->where('nama', 'like', "%{$keyword}%");
+        })
+        ->latest()
+        ->paginate(10)
+        ->withQueryString();
+
         return view('jenis.index', compact('jenis'));
     }
 

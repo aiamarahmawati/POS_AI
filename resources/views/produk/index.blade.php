@@ -8,8 +8,8 @@
 
     <style>
         /* ==========================================================================
-               STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
-               ========================================================================== */
+                   STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
+                   ========================================================================== */
 
         /* Menargetkan tag h1 yang menjadi judul utama di setiap halaman */
 
@@ -34,8 +34,8 @@
         }
 
         /* ==========================================================================
-               HALAMAN MANAGEMENT DATA (USERS & MASTER DATA) - FINAL PERFECTED
-               ========================================================================== */
+                   HALAMAN MANAGEMENT DATA (USERS & MASTER DATA) - FINAL PERFECTED
+                   ========================================================================== */
         /* ---------- 1. Tata Letak Filter & Tombol Create ---------- */
 
         .table-filter-action {
@@ -282,9 +282,8 @@
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
                         <th style="width: 90px;">Stok</th>
-                        @if (auth()->user()->role === 'admin')
-                            <th style="width: 200px; text-align: right;">Aksi</th>
-                        @endif
+                        <th style="width: 200px; text-align: right;">Aksi</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -310,28 +309,26 @@
                                     <span>{{ $product->stok }}</span>
                                 @endif
                             </td>
-                            @if (auth()->user()->role === 'admin')
-                                <td>
-                                    <!-- 5. TOMBOL AKSI: Menggunakan kelas minimalis outline yang elegan -->
-                                    <div class="d-flex gap-2 justify-content-end align-items-center">
-                                        @can('update', $product)
-                                            <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
-                                        @endcan
-                                        @can('delete', $product)
-                                            <form action="{{ route('produk.destroy', $product) }}" method="POST"
-                                                class="d-inline m-0 p-0">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-action-delete py-1 px-2 lh-sm"
-                                                    style="font-size: 13px !important;"
-                                                    onclick="return confirm('Apakah yakin akan menghapus produk ini?')">
-                                                    Hapus
-                                                </button>
-                                            </form>
-                                        @endcan
-                                    </div>
-                                </td>
-                            @endif
+                            <td>
+                                <!-- 5. TOMBOL AKSI: Menggunakan kelas minimalis outline yang elegan -->
+                                <div class="d-flex gap-2 justify-content-end align-items-center">
+                                    @can('update', $product)
+                                        <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
+                                    @endcan
+                                    @can('delete', $product)
+                                        <form action="{{ route('produk.destroy', $product) }}" method="POST"
+                                            class="d-inline m-0 p-0">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-action-delete py-1 px-2 lh-sm"
+                                                style="font-size: 13px !important;"
+                                                onclick="return confirm('Apakah Anda yakin akan menghapus produk ini?')">
+                                                Hapus
+                                            </button>
+                                        </form>
+                                    @endcan
+                                </div>
+                            </td>
                         </tr>
                     @empty
                         <tr>

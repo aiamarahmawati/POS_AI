@@ -278,7 +278,7 @@ span.badge-role.kasir {
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-action-delete py-1 px-2 lh-sm"
                                             style="font-size: 13px !important;"
-                                            onclick="return confirm('Yakin hapus user ini?')">
+                                            onclick="return confirm('Apakah Anda yakin akan menghapus user ini?')">
                                             Hapus
                                         </button>
                                     </form>
