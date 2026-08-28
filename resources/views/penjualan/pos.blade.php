@@ -314,10 +314,8 @@ h4.mb-3 {
 }
 
 </style>
-<!-- 1. PEMBUNGKUS BARU: Menyelaraskan seluruh halaman di posisi tengah yang seimbang -->
-<div class="pos-container">
-
-    @if ($errors->any())
+{{-- Pengaman agar program tidak crash jika $errors terkirim sebagai string --}}
+@if (isset($errors) && is_object($errors) && method_exists($errors, 'any') && $errors->any())
     <div class="alert alert-danger">
         <ul class="mb-0">
             @foreach ($errors->all() as $error)
@@ -325,7 +323,12 @@ h4.mb-3 {
             @endforeach
         </ul>
     </div>
+@elseif(is_string($errors) && !empty($errors))
+    <div class="alert alert-danger">
+        <p class="mb-0">{{ $errors }}</p>
+    </div>
 @endif
+
 
     <!-- 2. KOTAK CARD UTAMA: Membuat wadah putih bertingkat dengan bayangan halus -->
     <div class="pos-card-main">
