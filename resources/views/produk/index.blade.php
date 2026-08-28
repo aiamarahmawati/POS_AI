@@ -7,12 +7,6 @@
 @section('content')
 
     <style>
-        /* ==========================================================================
-                   STYLING SERAGAM UNTUK SEMUA JUDUL HALAMAN UTAMA (USERS, PRODUK, PENJUALAN)
-                   ========================================================================== */
-
-        /* Menargetkan tag h1 yang menjadi judul utama di setiap halaman */
-
         .container h1,
         .pos-container h1,
         .table-filter-action~h1,
@@ -116,8 +110,8 @@
             /* Memaksa background tabel jadi putih solid */
             border: 1px solid #E2E8F0 !important;
             border-radius: 12px !important;
-            border-collapse: separate !important;
-            /* Wajib separate agar lengkungan sudut luar terlihat */
+            border-collapse: separate !important; /* Wajib separate agar lengkungan sudut luar terlihat */
+
             border-spacing: 0 !important;
             overflow: hidden !important;
             box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.02) !important;
@@ -282,8 +276,9 @@
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
                         <th style="width: 90px;">Stok</th>
-                        <th style="width: 200px; text-align: right;">Aksi</th>
-
+                        @if (auth()->user()->role_id === 1)
+                            <th style="width: 200px; text-align: right;">Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -310,6 +305,7 @@
                                 @endif
                             </td>
                             <td>
+                                @if (auth()->user()->role_id === 1)
                                 <!-- 5. TOMBOL AKSI: Menggunakan kelas minimalis outline yang elegan -->
                                 <div class="d-flex gap-2 justify-content-end align-items-center">
                                     @can('update', $product)
@@ -329,10 +325,11 @@
                                     @endcan
                                 </div>
                             </td>
+                        @endif
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="{{ auth()->user()->role === 'admin' ? 9 : 8 }}"
+                            <td colspan="{{ auth()->user()->role_id === 1 ? 9 : 8 }}"
                                 class="text-center text-muted py-5">
                                 Data produk tidak tersedia.
                             </td>

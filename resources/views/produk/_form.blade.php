@@ -162,7 +162,7 @@ div.card-header h1 {
     <label class="form-label">Nama Produk</label>
     <input type="text" name="name"
            class="form-control @error('name') is-invalid @enderror"
-           value="{{ old('name', $produk->nama ?? '') }}">
+           value="{{ old('name', $produk->nama ?? '') }}" autocomplete="off">
         @error('name')
             <div class="invalid-feedback">
                 {{ $message }}

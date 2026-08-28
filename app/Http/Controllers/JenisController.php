@@ -62,6 +62,8 @@ class JenisController extends Controller
 
     public function destroy(Jenis $jenis)
     {
+        $this->authorize('delete', $jenis);
+
         $jenis->delete();
 
         return redirect()->route('jenis.index')->with('success', 'Jenis berhasil dihapus');

@@ -123,7 +123,7 @@ div.card-header h1 {
     <label class="form-label">Nama</label>
     <input type="text" name="name"
            class="form-control @error('name') is-invalid @enderror"
-           value="{{ old('name', $user->name ?? '') }}">
+           value="{{ old('name', $user->name ?? '') }}" autocomplete="off">
     @error('name')
            <div class="invalid-feedback">
             {{ $message }}

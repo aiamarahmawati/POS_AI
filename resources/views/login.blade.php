@@ -87,7 +87,7 @@
             
             <div class="mb-3 text-start">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
                 @error('email')
                     <div class="text-danger-custom mt-1" style="font-size: 13px;">{{ $message }}</div>
                 @enderror
